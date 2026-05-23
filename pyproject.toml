@@ -1,0 +1,18 @@
+[project]
+name = "magpai"
+version = "1.0.0"
+description = "MAGPAI – Mark Anthony Group Prototype AI educational demo lab"
+authors = [
+    { name = "Vasilis Katsoulis" }
+]
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.coverage.run]
+source = ["src/magpai"]

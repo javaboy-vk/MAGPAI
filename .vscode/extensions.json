@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "ms-python.debugpy",
+    "ms-toolsai.jupyter",
+    "charliermarsh.ruff",
+    "ms-vscode.powershell",
+    "yzhang.markdown-all-in-one",
+    "bierner.markdown-mermaid",
+    "hediet.vscode-drawio",
+    "redhat.vscode-yaml"
+  ]
+}

@@ -1,0 +1,19 @@
+# MAGPAI Python Dependencies – v1.0
+
+torch
+numpy
+pandas
+matplotlib
+scikit-learn
+jupyter
+notebook
+ipykernel
+streamlit
+fastapi
+uvicorn
+pydantic
+pytest
+pytest-cov
+mkdocs
+mkdocs-material
+tensorboard

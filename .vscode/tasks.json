@@ -1,0 +1,42 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "MAGPAI - Create Virtual Environment",
+      "type": "shell",
+      "command": "python -m venv .venv",
+      "problemMatcher": []
+    },
+    {
+      "label": "MAGPAI - Install Requirements",
+      "type": "shell",
+      "command": ".\\.venv\\Scripts\\python.exe -m pip install --upgrade pip; .\\.venv\\Scripts\\pip.exe install -r requirements.txt",
+      "problemMatcher": []
+    },
+    {
+      "label": "MAGPAI - Run Tests",
+      "type": "shell",
+      "command": ".\\.venv\\Scripts\\pytest.exe",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "MAGPAI - Serve Docs",
+      "type": "shell",
+      "command": ".\\.venv\\Scripts\\mkdocs.exe serve",
+      "problemMatcher": []
+    },
+    {
+      "label": "MAGPAI - Run Token Visualizer",
+      "type": "shell",
+      "command": ".\\.venv\\Scripts\\streamlit.exe run apps/streamlit/token_visualizer_app.py",
+      "problemMatcher": []
+    },
+    {
+      "label": "MAGPAI - Run FastAPI Gateway",
+      "type": "shell",
+      "command": ".\\.venv\\Scripts\\uvicorn.exe apps.fastapi.local_ai_gateway_app:app --reload --host 127.0.0.1 --port 18081",
+      "problemMatcher": []
+    }
+  ]
+}

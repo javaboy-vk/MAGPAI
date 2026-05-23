@@ -1,0 +1,76 @@
+# ============================================================
+# MAGPAI .gitignore – v1.0
+# ============================================================
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code local/private settings
+.vscode/settings.local.json
+
+# Generated documentation/site output
+site/
+build/
+dist/
+
+# Reports
+reports/generated/*
+reports/coverage/*
+reports/profiling/*
+!reports/generated/.gitkeep
+!reports/coverage/.gitkeep
+!reports/profiling/.gitkeep
+
+# TensorBoard / PyTorch runs
+runs/*
+!runs/.gitkeep
+
+# Model checkpoints and exports
+models/checkpoints/*
+models/exports/*
+!models/checkpoints/.gitkeep
+!models/exports/.gitkeep
+
+# Generated data
+data/generated/*
+!data/generated/.gitkeep
+
+# Logs
+*.log
+logs/
+
+# PowerPoint / Office temporary files
+~$*.pptx
+~$*.docx
+~$*.xlsx
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Environment / secrets
+.env
+.env.*
+*.pem
+*.key
+*.crt
+
+# Do not commit local caches
+.cache/
