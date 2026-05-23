@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="850" viewBox="0 0 1400 850">
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#0B5CAD" />
+    </marker>
+    <style>
+      .title { font-family: Aptos, Arial, sans-serif; font-size: 38px; font-weight: 700; fill: #0B2F5B; }
+      .subtitle { font-family: Aptos, Arial, sans-serif; font-size: 22px; fill: #24496F; }
+      .boxTitle { font-family: Aptos, Arial, sans-serif; font-size: 23px; font-weight: 700; fill: #0B2F5B; }
+      .body { font-family: Aptos, Arial, sans-serif; font-size: 22px; fill: #172B4D; }
+      .small { font-family: Aptos, Arial, sans-serif; font-size: 18px; fill: #24496F; }
+      .mono { font-family: Consolas, 'Courier New', monospace; font-size: 21px; fill: #102A43; }
+      .box { fill: #FFFFFF; stroke: #0B5CAD; stroke-width: 3; rx: 24; }
+      .soft { fill: #EAF3FF; stroke: #8CBCE8; stroke-width: 2; rx: 18; }
+      .arrow { stroke: #0B5CAD; stroke-width: 5; fill: none; marker-end: url(#arrow); }
+      .footer { font-family: Aptos, Arial, sans-serif; font-size: 17px; fill: #52616B; }
+    </style>
+  </defs>
+
+  <rect width="1400" height="850" fill="#F4F9FF" />
+
+  <text x="70" y="70" class="title">MAGPAI Session 1 - From Sentence to Tokens to Vectors - v1.0</text>
+  <text x="70" y="108" class="subtitle">How text becomes numeric input for a neural network</text>
+
+  <rect x="70" y="150" width="1260" height="110" class="box" />
+  <text x="100" y="190" class="boxTitle">1. Human statement</text>
+  <text x="100" y="232" class="mono">"Sales are up in Chicago"</text>
+
+  <line x1="700" y1="260" x2="700" y2="310" class="arrow" />
+
+  <rect x="70" y="320" width="1260" height="110" class="box" />
+  <text x="100" y="360" class="boxTitle">2. Tokenizer splits text into tokens</text>
+  <text x="100" y="402" class="mono">["sales", "are", "up", "in", "chicago"]</text>
+
+  <line x1="700" y1="430" x2="700" y2="480" class="arrow" />
+
+  <rect x="70" y="490" width="1260" height="110" class="box" />
+  <text x="100" y="530" class="boxTitle">3. Vocabulary maps tokens to IDs</text>
+  <text x="100" y="572" class="mono">[1, 2, 3, 4, 5]</text>
+
+  <line x1="700" y1="600" x2="700" y2="650" class="arrow" />
+
+  <rect x="70" y="660" width="1260" height="120" class="box" />
+  <text x="100" y="700" class="boxTitle">4. Embedding table maps IDs to vectors</text>
+  <text x="100" y="742" class="mono">1 → [0.21, -0.44, 0.78, 0.12]    2 → [0.03, 0.91, -0.14, 0.36]</text>
+
+  <rect x="925" y="165" width="365" height="80" class="soft" />
+  <text x="950" y="198" class="small">Key mental model</text>
+  <text x="950" y="225" class="small">The model processes vectors, not words.</text>
+
+  <text x="70" y="820" class="footer">Artifact: sentence_to_tokens_to_vectors_v1.0.svg | Author: javaboy-vk | Date: 2026-05-22</text>
+</svg>

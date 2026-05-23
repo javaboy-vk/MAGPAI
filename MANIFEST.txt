@@ -1,0 +1,16 @@
+MANIFEST.txt
+README_MAGPAI_SESSION_01_PATCH_v1.2.md
+diagrams/session_01_tokens/sentence_to_tokens_to_vectors_v1.0.svg
+diavgeia/MAGPAI/Session_01_Tokens/Session_01_Tokens_Demo_Runbook_v1.2.md
+diavgeia/MAGPAI/Session_01_Tokens/Session_01_Tokens_Diavgeia_Page_v1.2.md
+diavgeia/MAGPAI/Session_01_Tokens/Session_01_Tokens_Obsidian_Slides_v1.2.md
+diavgeia/MAGPAI/Session_01_Tokens/Session_01_Tokens_Speaking_Script_v1.2.md
+docs/session_01_tokens/Session_01_Tokens_Embedding_Explanation_v1.2.md
+docs/session_01_tokens/Session_01_Tokens_Integration_Note_v1.2.md
+docs/session_01_tokens/Session_01_Tokens_Slide_Story_v1.2.md
+pptx/Session_01_Tokens_v1.0.pptx
+requirements/session_01_tokens.txt
+src/magpai/embeddings/embedding_lookup_linear_algebra_demo.py
+src/magpai/tokenization/manual_tokenizer.py
+src/magpai/tokenization/token_demo.py
+src/magpai/tokenization/token_streamlit_app.py

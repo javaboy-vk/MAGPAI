@@ -1,5 +1,5 @@
 # ============================================================
-# MAGPAI .gitignore – v1.0
+# MAGPAI .gitignore - v1.0
 # ============================================================
 
 # Python
@@ -7,19 +7,34 @@ __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
+.Python
+.python-version
+.eggs/
+*.egg-info/
+pip-wheel-metadata/
 .pytest_cache/
+.hypothesis/
 .mypy_cache/
+.pyre/
+.pytype/
 .ruff_cache/
 .coverage
+.coverage.*
+coverage.xml
 htmlcov/
 
 # Virtual environments
 .venv/
 venv/
 env/
+ENV/
 
 # Jupyter
 .ipynb_checkpoints/
+
+# Streamlit / app-local config
+.streamlit/secrets.toml
+.streamlit/config.local.toml
 
 # VS Code local/private settings
 .vscode/settings.local.json
@@ -55,6 +70,11 @@ data/generated/*
 *.log
 logs/
 
+# Local databases and runtime state
+*.db
+*.sqlite
+*.sqlite3
+
 # PowerPoint / Office temporary files
 ~$*.pptx
 ~$*.docx
@@ -68,9 +88,11 @@ desktop.ini
 # Environment / secrets
 .env
 .env.*
+!.env.example
 *.pem
 *.key
 *.crt
 
 # Do not commit local caches
 .cache/
+.uv-cache/
