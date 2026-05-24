@@ -1,5 +1,5 @@
----
-title: Slide 04 - Starting Question
+﻿---
+title: Slide 04 - Starting Sentence
 tags:
   - magpai
   - session1
@@ -7,7 +7,7 @@ tags:
 slide: 04
 ---
 
-# Slide 04 - Starting Question
+# Slide 04 - Starting Sentence
 
 ## Slide Intent
 
@@ -36,3 +36,4 @@ Before the system can answer honestly, the question has to become tokens, vector
 ## Transition
 
 The first conversion step is tokenization.
+

@@ -1,14 +1,13 @@
 ---
-title: Slide 13 - Demo Cue - Chart-Backed Answer
+title: Live Demo 04 - Chart-Backed Answer
 tags:
   - magpai
   - session1
   - teleprompter
   - live-demo
-slide: 13
 ---
 
-# Slide 13 - Demo Cue - Chart-Backed Answer
+# Live Demo 04 - Chart-Backed Answer
 
 ## Slide Intent
 
@@ -62,4 +61,3 @@ The model does not hallucinate the chart. The chart is generated from data.
 ## Transition
 
 Now I will close with the bigger mental model for the team.
-

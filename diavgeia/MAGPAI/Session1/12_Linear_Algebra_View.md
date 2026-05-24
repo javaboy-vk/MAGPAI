@@ -1,13 +1,13 @@
----
-title: Slide 09 - Linear Algebra View
+﻿---
+title: Slide 12 - Linear Algebra View
 tags:
   - magpai
   - session1
   - teleprompter
-slide: 09
+slide: 12
 ---
 
-# Slide 09 - Linear Algebra View
+# Slide 12 - Linear Algebra View
 
 ## Slide Intent
 
@@ -26,7 +26,7 @@ Token ID 3 can be represented as a one-hot vector:
 If we multiply that one-hot vector by the embedding matrix `E`, it selects row 3:
 
 ```text
-[0, 0, 0, 1, 0, 0, 0, 0] x E = row 3 of E
+[0, 0, 0, 1, 0, 0, 0, 0] x E = [-0.62, 0.18, 0.45, -0.09]
 ```
 
 In real code, frameworks usually skip the one-hot vector because it is inefficient. They directly retrieve the row.
@@ -42,4 +42,5 @@ But conceptually, this view helps us connect the lookup to matrix multiplication
 
 ## Transition
 
-Now I will switch from slides to code and show the pipeline running.
+Now we can explain what reaches the neural network before switching to code.
+

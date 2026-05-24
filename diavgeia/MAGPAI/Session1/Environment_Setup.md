@@ -141,14 +141,14 @@ Non-interactive:
 
 ```powershell
 $env:PYTHONPATH="src"
-python -m magpai.chatbot --question "are mag sales up in Chicago?"
+python -m magpai.chatbot --question "are MAG sales up in Chicago?"
 ```
 
 Trace mode:
 
 ```powershell
 $env:PYTHONPATH="src"
-python -m magpai.chatbot --trace --question "are mag sales up in Chicago?"
+python -m magpai.chatbot --trace --question "are MAG sales up in Chicago?"
 ```
 
 Generated chart:

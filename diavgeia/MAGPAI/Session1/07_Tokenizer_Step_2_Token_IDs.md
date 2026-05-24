@@ -1,13 +1,13 @@
----
-title: Slide 06 - Tokenizer Step 2 - Token IDs
+﻿---
+title: Slide 07 - Tokenizer Step 2 - Token IDs
 tags:
   - magpai
   - session1
   - teleprompter
-slide: 06
+slide: 07
 ---
 
-# Slide 06 - Tokenizer Step 2 - Token IDs
+# Slide 07 - Tokenizer Step 2 - Token IDs
 
 ## Slide Intent
 
@@ -22,7 +22,7 @@ In this demo vocabulary:
 ```text
 "<PAD>"   -> 0
 "are"     -> 1
-"mag"     -> 2
+"MAG"     -> 2
 "sales"   -> 3
 "up"      -> 4
 "in"      -> 5
@@ -33,7 +33,7 @@ In this demo vocabulary:
 So the token list:
 
 ```text
-["are", "mag", "sales", "up", "in", "chicago", "?"]
+["are", "MAG", "sales", "up", "in", "chicago", "?"]
 ```
 
 becomes:
@@ -54,4 +54,5 @@ Token ID 3 does not mathematically mean sales. It points to where the model can 
 
 ## Transition
 
-The meaningful numeric representation starts when token IDs become vectors.
+Before using vectors, we need to define the embedding table that stores them.
+

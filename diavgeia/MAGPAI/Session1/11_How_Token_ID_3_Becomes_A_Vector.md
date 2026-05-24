@@ -1,13 +1,13 @@
----
-title: Slide 08 - How Token ID 3 Becomes A Vector
+﻿---
+title: Slide 11 - How Token ID 3 Becomes a Vector
 tags:
   - magpai
   - session1
   - teleprompter
-slide: 08
+slide: 11
 ---
 
-# Slide 08 - How Token ID 3 Becomes A Vector
+# Slide 11 - How Token ID 3 Becomes a Vector
 
 ## Slide Intent
 
@@ -28,7 +28,7 @@ When the model sees token ID 3, it retrieves row 3 from that matrix.
 That row might look like this in the demo:
 
 ```text
-[0.21, -0.44, 0.78, 0.12]
+[-0.62, 0.18, 0.45, -0.09]
 ```
 
 The integer 3 does not contain the meaning of sales. It points to a learned row in the embedding matrix.
@@ -43,3 +43,4 @@ The integer 3 does not contain the meaning of sales. It points to a learned row 
 ## Transition
 
 There is also a useful linear algebra way to understand this same lookup.
+

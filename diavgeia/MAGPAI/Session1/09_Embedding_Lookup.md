@@ -1,13 +1,13 @@
----
-title: Slide 07 - Embedding Lookup
+﻿---
+title: Slide 09 - Embedding Lookup
 tags:
   - magpai
   - session1
   - teleprompter
-slide: 07
+slide: 09
 ---
 
-# Slide 07 - Embedding Lookup
+# Slide 09 - Embedding Lookup
 
 ## Slide Intent
 
@@ -23,7 +23,7 @@ For example:
 
 ```text
 1 -> vector for "are"
-2 -> vector for "mag"
+2 -> vector for "MAG"
 3 -> vector for "sales"
 ```
 
@@ -40,4 +40,5 @@ That vector is what moves forward into the neural network.
 
 ## Transition
 
-Let us zoom in on one token ID so the lookup behavior is clear.
+Before we zoom into the row lookup, we will define what a vector is.
+

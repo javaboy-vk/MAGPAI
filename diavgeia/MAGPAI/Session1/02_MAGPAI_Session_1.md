@@ -1,5 +1,5 @@
----
-title: Slide 02 - From Sentence To Tokens To Vectors
+﻿---
+title: Slide 02 - MAGPAI Session 1
 tags:
   - magpai
   - session1
@@ -7,7 +7,7 @@ tags:
 slide: 02
 ---
 
-# Slide 02 - From Sentence To Tokens To Vectors
+# Slide 02 - MAGPAI Session 1
 
 ## Slide Intent
 
@@ -43,3 +43,4 @@ Are MAG sales up in Chicago?
 ## Transition
 
 First, I want to separate the human view from the model view.
+

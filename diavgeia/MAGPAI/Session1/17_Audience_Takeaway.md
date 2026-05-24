@@ -1,13 +1,13 @@
----
-title: Slide 14 - Audience Takeaway
+﻿---
+title: Slide 17 - Audience Takeaway
 tags:
   - magpai
   - session1
   - teleprompter
-slide: 14
+slide: 17
 ---
 
-# Slide 14 - Audience Takeaway
+# Slide 17 - Audience Takeaway
 
 ## Slide Intent
 
@@ -28,6 +28,7 @@ The full pipeline we followed was:
 Question becomes tokens.
 Tokens become IDs.
 IDs become vectors.
+Vectors are stored as an activation tensor.
 Vectors support intent and entity extraction.
 The structured request goes to data and chart tools.
 The final answer is backed by a calculation and a chart.
@@ -42,9 +43,11 @@ The LLM-style layer helps understand and orchestrate. The data tool remains the 
 - Natural language is not the source of truth.
 - Token IDs are indexes.
 - Embeddings are vector representations.
+- The NN starts from a tensor of token vectors.
 - Structured requests make tool use explicit.
 - The final chart is generated from data.
 
 ## Closing Line
 
 MAGPAI converted a business question into a chart-backed answer.
+

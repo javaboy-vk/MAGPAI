@@ -1,4 +1,4 @@
----
+﻿---
 title: Slide 05 - Tokenizer Step 1 - Tokens
 tags:
   - magpai
@@ -19,7 +19,7 @@ The first tokenizer step is to break the sentence into tokens.
 
 In our teaching demo, the tokenizer is deliberately simple. It lowercases the sentence and splits on spaces.
 
-So this:
+So this input question:
 
 ```text
 Are MAG sales up in Chicago?
@@ -28,10 +28,12 @@ Are MAG sales up in Chicago?
 becomes this:
 
 ```text
-["are", "mag", "sales", "up", "in", "chicago", "?"]
+["are", "MAG", "sales", "up", "in", "chicago", "?"]
 ```
 
-This is not how every production tokenizer works. Real LLM tokenizers may split text into subwords, punctuation, spaces, and special tokens.
+In the PPTX we keep `MAG` capitalized because it is the company name in the input text. The demo still treats it as one token.
+
+This is not how every production tokenizer works. Real LLM tokenizers may split text into subwords, punctuation, spaces, casing variants, and special tokens.
 
 But for learning, word-level tokens make the concept visible.
 
@@ -45,4 +47,5 @@ But for learning, word-level tokens make the concept visible.
 
 ## Transition
 
-Once we have tokens, the next step is to map them to token IDs.
+Before we map tokens to IDs, we will define the words token and tokenizer.
+

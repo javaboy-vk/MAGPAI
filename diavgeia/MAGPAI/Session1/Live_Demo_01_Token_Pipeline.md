@@ -1,14 +1,13 @@
 ---
-title: Slide 10 - Demo Cue - Token Pipeline
+title: Live Demo 01 - Token Pipeline
 tags:
   - magpai
   - session1
   - teleprompter
   - live-demo
-slide: 10
 ---
 
-# Slide 10 - Demo Cue - Token Pipeline
+# Live Demo 01 - Token Pipeline
 
 ## Slide Intent
 
@@ -37,7 +36,7 @@ This is not a black box. The script prints each transformation step so we can se
 - `Normalized sentence`: lowercase form.
 - `Tokens`: the word-level token list.
 - `Token IDs`: vocabulary indexes.
-- `Embedding vectors`: numeric vectors returned by the embedding layer.
+- `Embedding vectors`: numeric rows returned by the embedding layer; this printed table is the token-vector grid we just described as the input tensor.
 
 ## Say This After Running
 
@@ -47,6 +46,7 @@ This output is the whole first mental model in one place:
 Question text becomes tokens.
 Tokens become IDs.
 IDs become vectors.
+Vectors are stored as an activation tensor.
 ```
 
 The command line version is useful because it removes visual distractions and shows the data directly.

@@ -1,14 +1,13 @@
 ---
-title: Slide 12 - Demo Cue - Embedding Linear Algebra
+title: Live Demo 03 - Embedding Linear Algebra
 tags:
   - magpai
   - session1
   - teleprompter
   - live-demo
-slide: 12
 ---
 
-# Slide 12 - Demo Cue - Embedding Linear Algebra
+# Live Demo 03 - Embedding Linear Algebra
 
 ## Slide Intent
 

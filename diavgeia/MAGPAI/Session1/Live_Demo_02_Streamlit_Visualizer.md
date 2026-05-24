@@ -1,14 +1,13 @@
 ---
-title: Slide 11 - Demo Cue - Streamlit Visualizer
+title: Live Demo 02 - Streamlit Visualizer
 tags:
   - magpai
   - session1
   - teleprompter
   - live-demo
-slide: 11
 ---
 
-# Slide 11 - Demo Cue - Streamlit Visualizer
+# Live Demo 02 - Streamlit Visualizer
 
 ## Slide Intent
 

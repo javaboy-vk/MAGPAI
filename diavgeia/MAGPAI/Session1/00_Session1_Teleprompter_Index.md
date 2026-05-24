@@ -22,20 +22,32 @@ Each page maps to one presentation slide or live-demo cue. Keep Diavgeia open on
 
 | Order | Page | Purpose |
 |---:|---|---|
-| 01 | [[01_Title_AI_Under_The_Covers]] | Open the demo series and frame the promise. |
-| 02 | [[02_Session_Title_Text_To_Vectors]] | Introduce Session 1 and the core idea. |
-| 03 | [[03_Big_Idea_Text_To_Numbers]] | Explain human view vs model view. |
+| 01 | [[01_MAGPAI]] | Open the demo series and frame the promise. |
+| 02 | [[02_MAGPAI_Session_1]] | Introduce Session 1 and the core idea. |
+| 03 | [[03_The_Big_Idea]] | Explain human view vs model view. |
 | 04 | [[04_Starting_Sentence]] | Anchor the demo on one business sentence. |
 | 05 | [[05_Tokenizer_Step_1_Tokens]] | Explain simple tokenization. |
-| 06 | [[06_Tokenizer_Step_2_Token_IDs]] | Explain vocabulary lookup. |
-| 07 | [[07_Embedding_Lookup]] | Explain token IDs becoming vectors. |
-| 08 | [[08_Token_ID_1_To_Vector]] | Explain row lookup. |
-| 09 | [[09_Linear_Algebra_View]] | Explain one-hot multiplication equivalence. |
-| 10 | [[10_Demo_Cue_Token_Demo]] | Run the terminal token pipeline demo. |
-| 11 | [[11_Demo_Cue_Streamlit_Visualizer]] | Run the Streamlit visual demo. |
-| 12 | [[12_Demo_Cue_Embedding_Linear_Algebra]] | Run the embedding lookup demo. |
-| 13 | [[13_Demo_Cue_Chart_Backed_Answer]] | Run the end-to-end question-to-chart demo. |
-| 14 | [[14_Audience_Takeaway]] | Close with the durable enterprise mental model. |
+| 06 | [[06_What_Are_Tokens_And_Tokenizers]] | Define token and tokenizer before token IDs. |
+| 07 | [[07_Tokenizer_Step_2_Token_IDs]] | Explain vocabulary lookup. |
+| 08 | [[08_What_Is_An_Embedding]] | Define embeddings and show a tiny embedding table. |
+| 09 | [[09_Embedding_Lookup]] | Explain token IDs becoming vectors. |
+| 10 | [[10_What_Is_A_Vector]] | Define vector and the sales vector lookup path. |
+| 11 | [[11_How_Token_ID_3_Becomes_A_Vector]] | Explain row lookup. |
+| 12 | [[12_Linear_Algebra_View]] | Explain one-hot multiplication equivalence. |
+| 13 | [[13_What_Is_A_Tensor]] | Define tensor and activation tensor. |
+| 14 | [[14_Prompt_Stored_As_An_Input_Tensor]] | Show the original prompt stored as a token-vector tensor. |
+| 15 | [[15_From_Question_To_Insight]] | Show the full question-to-insight dashboard image. |
+| 16 | [[16_Live_Demo_Path]] | Introduce the live demo path. |
+| 17 | [[17_Audience_Takeaway]] | Close with the durable enterprise mental model. |
+
+## Live Demo Support Pages
+
+| Page | Purpose |
+|---|---|
+| [[Live_Demo_01_Token_Pipeline]] | Run the terminal token pipeline demo. |
+| [[Live_Demo_02_Streamlit_Visualizer]] | Run the Streamlit visual demo. |
+| [[Live_Demo_03_Embedding_Linear_Algebra]] | Run the embedding lookup demo. |
+| [[Live_Demo_04_Chart_Backed_Answer]] | Run the end-to-end question-to-chart demo. |
 
 ## Preparation Loop
 

@@ -1,5 +1,5 @@
----
-title: Slide 01 - AI Under The Covers
+﻿---
+title: Slide 01 - MAGPAI
 tags:
   - magpai
   - session1
@@ -7,7 +7,7 @@ tags:
 slide: 01
 ---
 
-# Slide 01 - AI Under The Covers
+# Slide 01 - MAGPAI
 
 ## Slide Intent
 
@@ -38,3 +38,4 @@ The point is not to build a production model today. The point is to make the mec
 ## Transition
 
 Now I will narrow the scope to the first session: from a sentence to tokens to vectors.
+
