@@ -28,6 +28,11 @@ src/magpai/tokenization/manual_tokenizer.py
 src/magpai/tokenization/token_demo.py
 src/magpai/tokenization/token_streamlit_app.py
 src/magpai/embeddings/embedding_lookup_linear_algebra_demo.py
+src/magpai/llm/structured_request_generator.py
+src/magpai/tools/data_reader.py
+src/magpai/tools/trend_analyzer.py
+src/magpai/tools/chart_generator.py
+src/magpai/tools/chart_answer_demo.py
 ```
 
 ## Correct Runtime Commands
@@ -39,6 +44,7 @@ pip install -r requirements\session_01_tokens.txt
 $env:PYTHONPATH="src"
 python -m magpai.tokenization.token_demo
 python -m magpai.embeddings.embedding_lookup_linear_algebra_demo
+python -m magpai.tools.chart_answer_demo
 streamlit run src\magpai\tokenization\token_streamlit_app.py
 ```
 
@@ -72,6 +78,9 @@ docs/session_01_tokens/
   Session_01_Tokens_Integration_Note_v1.2.md
   Session_01_Tokens_Slide_Story_v1.2.md
   Session_01_Tokens_Embedding_Explanation_v1.2.md
+
+data/
+  mag_sales_demo.csv
 
 diagrams/session_01_tokens/
   sentence_to_tokens_to_vectors_v1.0.svg

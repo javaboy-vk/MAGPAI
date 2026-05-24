@@ -1,0 +1,38 @@
+---
+title: Slide 04 - Starting Question
+tags:
+  - magpai
+  - session1
+  - teleprompter
+slide: 04
+---
+
+# Slide 04 - Starting Question
+
+## Slide Intent
+
+Anchor the session on a business question that is easy for the audience to understand.
+
+## Say This
+
+Our example question is:
+
+```text
+Are MAG sales up in Chicago?
+```
+
+To us, this is straightforward. We understand the company, metric, trend direction, and market.
+
+But the model cannot process this raw English question directly.
+
+Before the system can answer honestly, the question has to become tokens, vectors, a structured data request, and then a chart generated from a tiny dataset.
+
+## Key Points
+
+- The question is simple for a human.
+- The same question is not yet model input.
+- The final answer must be backed by data.
+
+## Transition
+
+The first conversion step is tokenization.

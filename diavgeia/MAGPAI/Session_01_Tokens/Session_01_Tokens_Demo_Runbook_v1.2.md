@@ -1,8 +1,14 @@
-# MAGPAI Session 1 - Demo Runbook - v1.2
+# MAGPAI Session 1 - Demo Runbook - v1.3
 
 ## Purpose
 
 Run the Session 1 demos from the existing MAGPAI package structure.
+
+Canonical question:
+
+```text
+Are MAG sales up in Chicago?
+```
 
 ## Setup
 
@@ -21,8 +27,8 @@ python -m magpai.tokenization.token_demo
 
 Show:
 
-1. Original sentence
-2. Normalized sentence
+1. Original question
+2. Normalized question
 3. Tokens
 4. Token IDs
 5. Embedding vectors
@@ -51,5 +57,26 @@ Show:
 
 1. Text input
 2. Transformation pipeline
-3. Word → Token ID → Vector table
+3. Token to token ID to vector table
 4. Audience takeaway
+
+## Demo 4 - Chart-Backed Business Answer
+
+```powershell
+python -m magpai.tools.chart_answer_demo
+```
+
+Show:
+
+1. Natural language question
+2. Structured request
+3. CSV data source
+4. Generated chart
+5. Chart-backed answer
+
+Teaching point:
+
+```text
+MAGPAI does not answer from memory.
+It converts language into a structured data request, then uses data and tools.
+```

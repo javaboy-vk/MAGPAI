@@ -16,7 +16,7 @@ import torch
 # 1. Embedding table setup
 # ------------------------------------------------------------
 
-vocab_size = 6
+vocab_size = 8
 embedding_dimension = 4
 
 torch.manual_seed(7)
@@ -31,7 +31,7 @@ embedding = torch.nn.Embedding(
 # 2. Token ID lookup
 # ------------------------------------------------------------
 
-token_id = 1
+token_id = 3
 lookup_vector = embedding(torch.tensor(token_id))
 
 
@@ -56,7 +56,7 @@ print("\nToken ID:")
 print(token_id)
 
 print("\nLookup form:")
-print("embedding_table[1]")
+print("embedding_table[3]")
 print(lookup_vector)
 
 print("\nOne-hot form:")

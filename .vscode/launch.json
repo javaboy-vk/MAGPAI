@@ -10,6 +10,32 @@
       "justMyCode": true
     },
     {
+      "name": "MAGPAI - Chatbot",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "magpai.chatbot",
+      "args": [],
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/src"
+      },
+      "console": "integratedTerminal",
+      "justMyCode": false
+    },
+    {
+      "name": "MAGPAI - Chatbot Trace",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "magpai.chatbot",
+      "args": [
+        "--trace"
+      ],
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/src"
+      },
+      "console": "integratedTerminal",
+      "justMyCode": false
+    },
+    {
       "name": "MAGPAI - FastAPI Local Gateway",
       "type": "debugpy",
       "request": "launch",

@@ -1,4 +1,6 @@
-# MAGPAI – Mark Anthony Group Prototype AI – v1.0
+# MAGPAI - Mark Anthony Group AI Learning Demo - v1.0
+
+![[magpie.avif]]
 
 **Pronounced:** magpie
 
@@ -35,6 +37,12 @@ Each demo should include:
 3. Python source code
 4. runtime visualization
 5. clear engineering takeaway
+
+## Current Entry Points
+
+- [[Session1/00_Session1_Teleprompter_Index|Session 1 Teleprompter]]
+- [[Session1/Environment_Setup|Environment Setup]]
+- [[MAGPAI - Diavgeia Export Notes]]
 
 ## Core Message
 

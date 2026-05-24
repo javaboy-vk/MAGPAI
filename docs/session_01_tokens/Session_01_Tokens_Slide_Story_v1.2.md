@@ -2,40 +2,42 @@
 
 ## Theme
 
-How Text Becomes Numbers
+How a Business Question Becomes a Data-Backed Answer
 
-## Human Statement
+## Human Question
 
 ```text
-Sales are up in Chicago
+Are MAG sales up in Chicago?
 ```
 
-A human immediately sees a business statement. The words suggest a metric, a positive movement, and a location.
+A human immediately sees a business question. The words suggest a company, metric, trend direction, and location.
 
 A neural network does not start with that meaning. It cannot process raw English words directly. It needs numbers.
 
 ## Transformation
 
 ```text
-"Sales are up in Chicago"
-        ↓
+"Are MAG sales up in Chicago?"
+        ->
 Normalize text
-        ↓
-"sales are up in chicago"
-        ↓
+        ->
+"are mag sales up in chicago ?"
+        ->
 Tokenize
-        ↓
-["sales", "are", "up", "in", "chicago"]
-        ↓
+        ->
+["are", "mag", "sales", "up", "in", "chicago", "?"]
+        ->
 Vocabulary lookup
-        ↓
-[1, 2, 3, 4, 5]
-        ↓
+        ->
+[1, 2, 3, 4, 5, 6, 7]
+        ->
 Embedding lookup
-        ↓
+        ->
 Numeric vectors
-        ↓
-Neural network input
+        ->
+Structured request
+        ->
+Data lookup and chart-backed answer
 ```
 
 ## Tokenizer Boundary
@@ -43,19 +45,19 @@ Neural network input
 The tokenizer performs this part:
 
 ```text
-Text → Tokens → Token IDs
+Text -> Tokens -> Token IDs
 ```
 
 In the MAGPAI teaching demo, tokenization is deliberately simple:
 
 ```python
-tokens = sentence.lower().split()
+tokens = sentence.lower().replace("?", " ?").split()
 ```
 
-This produces word-level tokens:
+This produces word-level tokens plus a question-mark token:
 
 ```text
-["sales", "are", "up", "in", "chicago"]
+["are", "mag", "sales", "up", "in", "chicago", "?"]
 ```
 
 A real LLM tokenizer may split text into whole words, subwords, spaces, punctuation, and special tokens. The simplified demo teaches the concept before introducing production tokenizer complexity.
@@ -63,11 +65,13 @@ A real LLM tokenizer may split text into whole words, subwords, spaces, punctuat
 ## Vocabulary Lookup
 
 ```text
-"sales"   → 1
-"are"     → 2
-"up"      → 3
-"in"      → 4
-"chicago" → 5
+"are"     -> 1
+"mag"     -> 2
+"sales"   -> 3
+"up"      -> 4
+"in"      -> 5
+"chicago" -> 6
+"?"       -> 7
 ```
 
 The token IDs are arbitrary labels. They are not meaningful mathematical quantities by themselves.
@@ -77,17 +81,27 @@ The token IDs are arbitrary labels. They are not meaningful mathematical quantit
 The embedding layer performs this part:
 
 ```text
-Token IDs → Vectors
+Token IDs -> Vectors
 ```
 
 For example:
 
 ```text
-1 → [0.21, -0.44, 0.78, 0.12]
+3 -> [0.21, -0.44, 0.78, 0.12]
 ```
 
-Token ID 1 is used as an index into the embedding matrix. It selects row 1.
+Token ID 3 is used as an index into the embedding matrix. It selects row 3.
+
+## Business Answer Boundary
+
+MAGPAI then demonstrates a tiny enterprise-style flow:
+
+```text
+Structured request -> CSV data -> trend calculation -> chart -> answer
+```
+
+The LLM-style layer does not invent the chart. The chart is generated from data.
 
 ## Audience Takeaway
 
-A model never sees `sales` as a word. It sees a numeric pattern.
+MAGPAI does not answer from memory. It converts language into structure, then uses data and tools to produce a chart-backed answer.

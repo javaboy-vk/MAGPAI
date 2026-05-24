@@ -74,12 +74,47 @@ pytest
 streamlit run apps/streamlit/token_visualizer_app.py
 ```
 
+## Run the Chart-Backed Answer Demo
+
+```powershell
+$env:PYTHONPATH="src"
+python -m magpai.tools.chart_answer_demo
+```
+
+## Run the MAGPAI Chatbot
+
+```powershell
+$env:PYTHONPATH="src"
+python -m magpai.chatbot --question "are mag sales up in Chicago?"
+```
+
+Show the under-the-covers trace:
+
+```powershell
+$env:PYTHONPATH="src"
+python -m magpai.chatbot --trace --question "are mag sales up in Chicago?"
+```
+
 ## Documentation
 
 Build local documentation with MkDocs:
 
 ```powershell
 mkdocs serve
+```
+
+## Diavgeia Vault Export
+
+Export the Diavgeia-ready presenter material to the local vault:
+
+```powershell
+.\scripts\export-diavgeia-vault.ps1
+```
+
+Default target:
+
+```text
+D:\DiavgeiaVault\Engineering\MAGPAI\Session1
 ```
 
 ## Artifact Naming Standard

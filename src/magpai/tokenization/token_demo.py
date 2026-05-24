@@ -18,7 +18,7 @@ from magpai.tokenization.manual_tokenizer import ManualTokenizer, build_demo_voc
 # 1. Input sentence
 # ------------------------------------------------------------
 
-sentence = "sales are up in chicago"
+sentence = "Are MAG sales up in Chicago?"
 
 
 # ------------------------------------------------------------

@@ -1,0 +1,13 @@
+period,company,market,metric,value
+2026-01,MAG,Chicago,sales,82
+2026-02,MAG,Chicago,sales,91
+2026-03,MAG,Chicago,sales,104
+2026-04,MAG,Chicago,sales,119
+2026-01,MAG,Dallas,sales,76
+2026-02,MAG,Dallas,sales,74
+2026-03,MAG,Dallas,sales,79
+2026-04,MAG,Dallas,sales,81
+2026-01,MAG,New York,sales,130
+2026-02,MAG,New York,sales,126
+2026-03,MAG,New York,sales,124
+2026-04,MAG,New York,sales,121

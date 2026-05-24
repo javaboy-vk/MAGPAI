@@ -52,7 +52,7 @@ tokenizer = ManualTokenizer(vocab)
 
 sentence = st.text_input(
     "Enter a sentence using the demo vocabulary:",
-    "sales are up in chicago",
+    "Are MAG sales up in Chicago?",
 )
 
 try:
@@ -133,7 +133,7 @@ st.markdown("## How Token ID 1 Becomes a Vector")
 
 st.code(
     """
-Token:      sales
+Token:      are
 Token ID:   1
 Lookup:     embedding_table[1]
 Result:     row 1 of the embedding matrix
@@ -149,6 +149,6 @@ Result:     row 1 of the embedding matrix
 st.markdown("## Audience Takeaway")
 
 st.success(
-    "A model never sees the word 'sales' as a word. "
-    "It sees a numeric pattern represented by a vector."
+    "MAGPAI does not answer from memory. It converts language into structure, "
+    "then uses data and tools to produce a chart-backed answer."
 )

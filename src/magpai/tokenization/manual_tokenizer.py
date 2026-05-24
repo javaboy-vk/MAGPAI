@@ -41,7 +41,7 @@ class ManualTokenizer:
         Normalizes input text for the teaching demo.
         """
 
-        return text.lower().strip()
+        return text.lower().replace("?", " ?").strip()
 
     def tokenize(self, text: str) -> list[str]:
         """
@@ -83,9 +83,11 @@ def build_demo_vocab() -> dict[str, int]:
 
     return {
         "<PAD>": 0,
-        "sales": 1,
-        "are": 2,
-        "up": 3,
-        "in": 4,
-        "chicago": 5,
+        "are": 1,
+        "mag": 2,
+        "sales": 3,
+        "up": 4,
+        "in": 5,
+        "chicago": 6,
+        "?": 7,
     }
