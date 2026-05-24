@@ -1,13 +1,13 @@
 ﻿---
-title: Slide 07 - Tokenizer Step 2 - Token IDs
+title: Slide 08 - Tokenizer Step 2 - Token IDs
 tags:
   - magpai
   - session1
   - teleprompter
-slide: 07
+slide: 08
 ---
 
-# Slide 07 - Tokenizer Step 2 - Token IDs
+# Slide 08 - Tokenizer Step 2 - Token IDs
 
 ## Slide Intent
 
@@ -55,4 +55,5 @@ Token ID 3 does not mathematically mean sales. It points to where the model can 
 ## Transition
 
 Before using vectors, we need to define the embedding table that stores them.
+
 

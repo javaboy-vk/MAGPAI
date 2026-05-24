@@ -8,7 +8,13 @@ $ErrorActionPreference = "Stop"
 $repoRoot = Resolve-Path (Join-Path $PSScriptRoot "..")
 $sourceRoot = Join-Path $repoRoot "diavgeia"
 $sessionSource = Join-Path $sourceRoot "MAGPAI\Session1"
-$imageSource = Join-Path $repoRoot "images\magpie.avif"
+$imageSources = @(
+    "magpie.avif"
+    "full_stack_ai_ml_mental_model_16_layers_magpai_start.png"
+    "magpai_from_question_to_insight.png"
+) | ForEach-Object {
+    Join-Path $repoRoot "images\$_"
+}
 
 if (-not (Test-Path -LiteralPath $VaultPath)) {
     throw "Vault path does not exist: $VaultPath"
@@ -45,8 +51,10 @@ if (Test-Path -LiteralPath $staleFolderNote) {
     Remove-Item -LiteralPath $staleFolderNote -Force
 }
 
-if (Test-Path -LiteralPath $imageSource) {
-    Copy-Item -LiteralPath $imageSource -Destination (Join-Path $imageTarget "magpie.avif") -Force
+$imageSources | ForEach-Object {
+    if (Test-Path -LiteralPath $_) {
+        Copy-Item -LiteralPath $_ -Destination (Join-Path $imageTarget (Split-Path $_ -Leaf)) -Force
+    }
 }
 
 Get-ChildItem -LiteralPath $sessionSource -File -Filter "*.md" | ForEach-Object {

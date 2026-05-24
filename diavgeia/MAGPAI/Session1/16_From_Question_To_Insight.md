@@ -1,13 +1,13 @@
----
-title: Slide 15 - From Question to Insight
+﻿---
+title: Slide 16 - From Question to Insight
 tags:
   - magpai
   - session1
   - teleprompter
-slide: 15
+slide: 16
 ---
 
-# Slide 15 - From Question to Insight
+# Slide 16 - From Question to Insight
 
 ## Slide Intent
 
@@ -15,7 +15,7 @@ Show the full MAGPAI flow as one end-to-end visual before switching to live demo
 
 ## Visual
 
-![MAGPAI From Question to Insight](../../../../images/magpai_from_question_to_insight.png)
+![[magpai_from_question_to_insight.png]]
 
 ## Say This
 
@@ -49,3 +49,4 @@ The point of the slide is not that this tiny neural network is production-grade.
 ## Transition
 
 Now I will switch from slides to code and show the pipeline running.
+

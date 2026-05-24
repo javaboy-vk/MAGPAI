@@ -1,13 +1,13 @@
 ﻿---
-title: Slide 06 - What Are Tokens and Tokenizers?
+title: Slide 07 - What Are Tokens and Tokenizers?
 tags:
   - magpai
   - session1
   - teleprompter
-slide: 06
+slide: 07
 ---
 
-# Slide 06 - What Are Tokens and Tokenizers?
+# Slide 07 - What Are Tokens and Tokenizers?
 
 ## Slide Intent
 
@@ -45,4 +45,5 @@ The tokenizer is not deciding whether sales are up. It is only preparing the tex
 ## Transition
 
 Now that we know what tokens are, we can map each token to a token ID.
+
 

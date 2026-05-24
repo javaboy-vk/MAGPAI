@@ -1,13 +1,13 @@
 ﻿---
-title: Slide 12 - Linear Algebra View
+title: Slide 13 - Linear Algebra View
 tags:
   - magpai
   - session1
   - teleprompter
-slide: 12
+slide: 13
 ---
 
-# Slide 12 - Linear Algebra View
+# Slide 13 - Linear Algebra View
 
 ## Slide Intent
 
@@ -43,4 +43,5 @@ But conceptually, this view helps us connect the lookup to matrix multiplication
 ## Transition
 
 Now we can explain what reaches the neural network before switching to code.
+
 

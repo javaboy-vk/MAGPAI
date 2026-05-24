@@ -1,13 +1,13 @@
 ﻿---
-title: Slide 03 - The Big Idea
+title: Slide 04 - The Big Idea
 tags:
   - magpai
   - session1
   - teleprompter
-slide: 03
+slide: 04
 ---
 
-# Slide 03 - The Big Idea
+# Slide 04 - The Big Idea
 
 ## Slide Intent
 
@@ -48,4 +48,5 @@ Each step moves the question away from human-readable text and closer to somethi
 ## Transition
 
 Now I will use one simple sentence and carry it through the whole pipeline.
+
 

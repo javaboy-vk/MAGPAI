@@ -1,13 +1,13 @@
 ﻿---
-title: Slide 11 - How Token ID 3 Becomes a Vector
+title: Slide 12 - How Token ID 3 Becomes a Vector
 tags:
   - magpai
   - session1
   - teleprompter
-slide: 11
+slide: 12
 ---
 
-# Slide 11 - How Token ID 3 Becomes a Vector
+# Slide 12 - How Token ID 3 Becomes a Vector
 
 ## Slide Intent
 
@@ -43,4 +43,5 @@ The integer 3 does not contain the meaning of sales. It points to a learned row 
 ## Transition
 
 There is also a useful linear algebra way to understand this same lookup.
+
 

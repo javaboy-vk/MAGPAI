@@ -1,13 +1,13 @@
----
-title: Slide 16 - Live Demo Path
+﻿---
+title: Slide 17 - Live Demo Path
 tags:
   - magpai
   - session1
   - teleprompter
-slide: 16
+slide: 17
 ---
 
-# Slide 16 - Live Demo Path
+# Slide 17 - Live Demo Path
 
 ## Slide Intent
 
@@ -55,3 +55,4 @@ The point is to show that the slide concepts are not just diagrams. The code pro
 ## Transition
 
 Start with the terminal token pipeline.
+

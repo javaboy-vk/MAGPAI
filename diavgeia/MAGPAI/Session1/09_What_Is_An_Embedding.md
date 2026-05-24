@@ -1,13 +1,13 @@
 ﻿---
-title: Slide 08 - What Is an Embedding?
+title: Slide 09 - What Is an Embedding?
 tags:
   - magpai
   - session1
   - teleprompter
-slide: 08
+slide: 09
 ---
 
-# Slide 08 - What Is an Embedding?
+# Slide 09 - What Is an Embedding?
 
 ## Slide Intent
 
@@ -42,4 +42,5 @@ In real models, the values are learned during training so that useful relationsh
 ## Transition
 
 Now we can explain embedding lookup as selecting a row from this table.
+
 

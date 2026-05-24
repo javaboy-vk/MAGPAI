@@ -1,13 +1,13 @@
 ﻿---
-title: Slide 17 - Audience Takeaway
+title: Slide 18 - Audience Takeaway
 tags:
   - magpai
   - session1
   - teleprompter
-slide: 17
+slide: 18
 ---
 
-# Slide 17 - Audience Takeaway
+# Slide 18 - Audience Takeaway
 
 ## Slide Intent
 
@@ -50,4 +50,5 @@ The LLM-style layer helps understand and orchestrate. The data tool remains the 
 ## Closing Line
 
 MAGPAI converted a business question into a chart-backed answer.
+
 

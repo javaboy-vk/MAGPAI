@@ -1,13 +1,13 @@
 ﻿---
-title: Slide 09 - Embedding Lookup
+title: Slide 10 - Embedding Lookup
 tags:
   - magpai
   - session1
   - teleprompter
-slide: 09
+slide: 10
 ---
 
-# Slide 09 - Embedding Lookup
+# Slide 10 - Embedding Lookup
 
 ## Slide Intent
 
@@ -41,4 +41,5 @@ That vector is what moves forward into the neural network.
 ## Transition
 
 Before we zoom into the row lookup, we will define what a vector is.
+
 
