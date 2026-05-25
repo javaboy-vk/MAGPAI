@@ -1,13 +1,13 @@
 ﻿---
-title: Slide 06 - Tokenizer Step 1 - Tokens
+title: Slide 07 - Tokenizer Step 1 - Tokens
 tags:
   - magpai
   - session1
   - teleprompter
-slide: 06
+slide: 07
 ---
 
-# Slide 06 - Tokenizer Step 1 - Tokens
+# Slide 07 - Tokenizer Step 1 - Tokens
 
 ## Slide Intent
 
@@ -48,5 +48,7 @@ But for learning, word-level tokens make the concept visible.
 ## Transition
 
 Before we map tokens to IDs, we will define the words token and tokenizer.
+
+
 
 

@@ -32,7 +32,7 @@ MAGPAI is not:
 
 Each demo should include:
 
-1. slides
+1. presenter notes
 2. diagrams
 3. Python source code
 4. runtime visualization

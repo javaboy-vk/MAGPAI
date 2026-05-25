@@ -1,13 +1,13 @@
----
-title: Slide 03 - Full Stack AI/ML Mental Model
+﻿---
+title: Slide 02 - Full Stack AI/ML Mental Model
 tags:
   - magpai
   - session1
   - teleprompter
-slide: 03
+slide: 02
 ---
 
-# Slide 03 - Full Stack AI/ML Mental Model
+# Slide 02 - Full Stack AI/ML Mental Model
 
 ## Slide Intent
 
@@ -52,4 +52,6 @@ The lower levels still matter. Computing, math, data, machine learning, and deep
 
 ## Transition
 
-Now we can zoom into the central idea: people read words, but neural-network models process numbers.
+Now I want to show the same stack from another angle: the math and sciences underneath each layer.
+
+

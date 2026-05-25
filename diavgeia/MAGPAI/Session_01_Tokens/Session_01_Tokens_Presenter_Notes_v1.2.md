@@ -15,6 +15,16 @@ tags:
 
 ---
 
+# Stack Orientation
+
+MAGPAI starts in the AI/ML language layer.
+
+That layer is based on computing, mathematics, data, machine learning, deep learning, linguistics, information theory, and software systems.
+
+Session 1 zooms into the first transformation: text becoming numeric model input.
+
+---
+
 # Big Idea
 
 People read words.
@@ -30,10 +40,10 @@ Text → Tokens → IDs → Vectors → Model
 # Starting Sentence
 
 ```text
-Sales are up in Chicago
+Are MAG sales up in Chicago?
 ```
 
-This is meaningful to a human.
+This is meaningful to a human as a business question.
 
 It is not yet model input.
 
@@ -42,9 +52,9 @@ It is not yet model input.
 # Tokenization
 
 ```text
-"sales are up in chicago"
+"are mag sales up in chicago ?"
         ↓
-["sales", "are", "up", "in", "chicago"]
+["are", "mag", "sales", "up", "in", "chicago", "?"]
 ```
 
 The tokenizer breaks text into known pieces.
@@ -54,11 +64,13 @@ The tokenizer breaks text into known pieces.
 # Vocabulary Lookup
 
 ```text
-"sales"   → 1
-"are"     → 2
-"up"      → 3
-"in"      → 4
-"chicago" → 5
+"are"     → 1
+"mag"     → 2
+"sales"   → 3
+"up"      → 4
+"in"      → 5
+"chicago" → 6
+"?"       → 7
 ```
 
 Tokens become token IDs.

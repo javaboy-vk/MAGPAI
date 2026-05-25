@@ -38,7 +38,7 @@ Are MAG sales up in Chicago?
 ## Point At These UI Areas
 
 - Text input: the sentence being transformed.
-- Transformation pipeline: the same sequence from the slides.
+- Transformation pipeline: the same sequence from the walkthrough.
 - Table: token to token ID to vector.
 - Error behavior: if we enter a word outside the small demo vocabulary, the app tells us.
 

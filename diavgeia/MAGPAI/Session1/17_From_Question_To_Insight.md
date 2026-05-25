@@ -1,13 +1,13 @@
 ﻿---
-title: Slide 16 - From Question to Insight
+title: Slide 17 - From Question to Insight
 tags:
   - magpai
   - session1
   - teleprompter
-slide: 16
+slide: 17
 ---
 
-# Slide 16 - From Question to Insight
+# Slide 17 - From Question to Insight
 
 ## Slide Intent
 
@@ -48,5 +48,7 @@ The point of the slide is not that this tiny neural network is production-grade.
 
 ## Transition
 
-Now I will switch from slides to code and show the pipeline running.
+Now I will switch from the walkthrough to code and show the pipeline running.
+
+
 

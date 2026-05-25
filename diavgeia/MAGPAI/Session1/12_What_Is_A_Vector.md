@@ -1,13 +1,13 @@
 ﻿---
-title: Slide 11 - What Is a Vector?
+title: Slide 12 - What Is a Vector?
 tags:
   - magpai
   - session1
   - teleprompter
-slide: 11
+slide: 12
 ---
 
-# Slide 11 - What Is a Vector?
+# Slide 12 - What Is a Vector?
 
 ## Slide Intent
 
@@ -40,5 +40,7 @@ The important point is that the vector is not the token ID. The token ID is only
 ## Transition
 
 Now we can zoom into Token ID 3 and show exactly how it becomes the `sales` vector.
+
+
 
 

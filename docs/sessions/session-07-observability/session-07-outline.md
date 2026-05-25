@@ -2,11 +2,11 @@
 
 ## Purpose
 
-Explain the concept through slides, diagrams, Python source code, and a runtime visualization.
+Explain the concept through presenter notes, diagrams, Python source code, and a runtime visualization.
 
 ## Demo Assets
 
-- slides/source/session-07-observability.pptx
+- pptx/session-07-observability.pptx
 - diagrams/source/
 - notebooks/session-07-observability.ipynb
 - src/magpai/
@@ -17,7 +17,7 @@ Explain the concept through slides, diagrams, Python source code, and a runtime 
 
 | Segment | Time |
 |---|---:|
-| Concept slides | 8–10 min |
+| Concept walkthrough | 8–10 min |
 | Runtime diagram | 5 min |
 | Python walkthrough | 15 min |
 | Visualization | 10 min |

@@ -36,6 +36,15 @@ Chicago = market/location
 
 MAGPAI should not imply that the model magically knows the data.
 
+The delivery now opens with two stack-orientation slides:
+
+```text
+AI/ML layers
+AI/ML layers based on math and sciences
+```
+
+Then Session 1 narrows to the tokenization and embedding path.
+
 The honest enterprise flow is:
 
 ```text
@@ -48,6 +57,9 @@ Question -> Tokens -> Token IDs -> Embedding Vectors -> Structured Request -> Da
 |---|---|
 | `diavgeia/MAGPAI/Session1/00_Session1_Teleprompter_Index.md` | Diavgeia teleprompter index with one page per slide/demo cue |
 | `pptx/Session_01_Tokens_v1.0.pptx` | Formal PowerPoint delivery deck |
+| `images/full_stack_ai_ml_mental_model_16_layers_magpai_start.png` | Stack-orientation visual showing where MAGPAI starts |
+| `images/full_stack_ai_ml_mental_model_16_layers_science_math.png` | Math and sciences foundation visual |
+| `images/magpai_from_question_to_insight.png` | End-to-end question-to-insight visual |
 | `src/magpai/tokenization/token_demo.py` | Command-line tokenization demo |
 | `src/magpai/tokenization/token_streamlit_app.py` | Streamlit visual demo |
 | `src/magpai/embeddings/embedding_lookup_linear_algebra_demo.py` | Embedding lookup and linear algebra demo |
@@ -57,6 +69,8 @@ Question -> Tokens -> Token IDs -> Embedding Vectors -> Structured Request -> Da
 ## Presenter Workflow
 
 Use `diavgeia/MAGPAI/Session1/` as the second-screen Diavgeia teleprompter while PowerPoint, VS Code, terminal output, and Streamlit are shared on the main screen.
+
+The current deck and teleprompter contain 19 slide pages. Keep the numbered Markdown pages aligned with the PowerPoint slide order.
 
 Preparation loop:
 

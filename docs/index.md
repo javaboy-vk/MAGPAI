@@ -4,14 +4,13 @@ MAGPAI is a transparent educational AI lab for explaining how AI works under the
 
 It combines:
 
-- slides
+- documentation pages
 - diagrams
 - Python source code
 - notebooks
 - visual runtime demos
 - Streamlit apps
 - FastAPI local services
-- documentation pages
 
 ## Core Principle
 

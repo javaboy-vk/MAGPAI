@@ -11,6 +11,7 @@ $sessionSource = Join-Path $sourceRoot "MAGPAI\Session1"
 $imageSources = @(
     "magpie.avif"
     "full_stack_ai_ml_mental_model_16_layers_magpai_start.png"
+    "full_stack_ai_ml_mental_model_16_layers_science_math.png"
     "magpai_from_question_to_insight.png"
 ) | ForEach-Object {
     Join-Path $repoRoot "images\$_"

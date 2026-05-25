@@ -37,5 +37,4 @@ The point is not to build a production model today. The point is to make the mec
 
 ## Transition
 
-Now I will narrow the scope to the first session: from a sentence to tokens to vectors.
-
+Before we zoom into the sentence, I want to show where this session sits in the larger AI/ML stack.

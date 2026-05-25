@@ -1,17 +1,17 @@
 ﻿---
-title: Slide 02 - MAGPAI Session 1
+title: Slide 04 - MAGPAI Session 1
 tags:
   - magpai
   - session1
   - teleprompter
-slide: 02
+slide: 04
 ---
 
-# Slide 02 - MAGPAI Session 1
+# Slide 04 - MAGPAI Session 1
 
 ## Slide Intent
 
-State the session topic and the main concept.
+State the session topic after the two stack-orientation slides.
 
 ## Say This
 
@@ -42,5 +42,7 @@ Are MAG sales up in Chicago?
 
 ## Transition
 
-First, I want to separate the human view from the model view.
+Now I want to separate the human view from the model view.
+
+
 

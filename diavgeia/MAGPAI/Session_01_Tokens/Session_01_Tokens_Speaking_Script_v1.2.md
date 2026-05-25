@@ -2,51 +2,59 @@
 
 ## Opening
 
-Today we start at the beginning of a language model. Before transformers, attention, training, or inference, the first thing we need to understand is how text becomes numbers.
+Today we start by locating MAGPAI in the AI/ML stack.
+
+MAGPAI starts in the language layer, where text becomes tokens, token IDs, vectors, tensors, and eventually model input.
+
+That layer is not floating by itself. It is built on computing, mathematics, data, classical machine learning, deep learning, and a set of sciences that include linear algebra, probability, statistics, optimization, information theory, linguistics, and software systems.
+
+After that orientation, we narrow the scope to Session 1: how a simple business question becomes numbers.
 
 ## Slide Story
 
-The sentence is:
+The question is:
 
 ```text
-Sales are up in Chicago
+Are MAG sales up in Chicago?
 ```
 
-To us, this is a business statement. We understand that sales increased, and we understand the location is Chicago.
+To us, this is a business question. We understand the company, metric, direction, and location.
 
 But the model cannot process this sentence directly. A neural network needs numeric input.
 
 So the tokenizer starts by preparing the text.
 
-In our demo, we normalize the text to lowercase:
+In our demo, we normalize the text:
 
 ```text
-sales are up in chicago
+are mag sales up in chicago ?
 ```
 
 Then the tokenizer splits the text into tokens:
 
 ```text
-["sales", "are", "up", "in", "chicago"]
+["are", "mag", "sales", "up", "in", "chicago", "?"]
 ```
 
 Each token is then looked up in a vocabulary:
 
 ```text
-sales becomes 1
-are becomes 2
-up becomes 3
-in becomes 4
-chicago becomes 5
+are becomes 1
+mag becomes 2
+sales becomes 3
+up becomes 4
+in becomes 5
+chicago becomes 6
+? becomes 7
 ```
 
 Now the sentence is no longer text. It is a sequence of token IDs:
 
 ```text
-[1, 2, 3, 4, 5]
+[1, 2, 3, 4, 5, 6, 7]
 ```
 
-But these IDs are still only indexes. Token ID 1 does not contain the meaning of sales by itself. It points to row 1 in an embedding table.
+But these IDs are still only indexes. Token ID 3 does not contain the meaning of sales by itself. It points to row 3 in an embedding table.
 
 That row is a vector:
 
@@ -58,15 +66,15 @@ The vector is the numeric representation that enters the neural network.
 
 ## Linear Algebra Explanation
 
-At a high level, the embedding table is a matrix. Token ID 1 selects row 1 from that matrix.
+At a high level, the embedding table is a matrix. Token ID 3 selects row 3 from that matrix.
 
-Mathematically, we can think of token ID 1 as this one-hot vector:
+Mathematically, we can think of token ID 3 as a one-hot vector:
 
 ```text
-[0, 1, 0, 0, 0, 0]
+[0, 0, 0, 1, 0, 0, 0, 0]
 ```
 
-When this one-hot vector is multiplied by the embedding matrix, it selects row 1.
+When this one-hot vector is multiplied by the embedding matrix, it selects row 3.
 
 So embedding lookup is both a simple table lookup and a linear algebra operation.
 

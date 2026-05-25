@@ -1,13 +1,13 @@
 ﻿---
-title: Slide 07 - What Are Tokens and Tokenizers?
+title: Slide 08 - What Are Tokens and Tokenizers?
 tags:
   - magpai
   - session1
   - teleprompter
-slide: 07
+slide: 08
 ---
 
-# Slide 07 - What Are Tokens and Tokenizers?
+# Slide 08 - What Are Tokens and Tokenizers?
 
 ## Slide Intent
 
@@ -55,5 +55,7 @@ Token balances having more meaning than words, while retaining more meaning than
 ## Transition
 
 Now that we know what tokens are, we can map each token to a token ID.
+
+
 
 

@@ -4,6 +4,16 @@
 
 How a Business Question Becomes a Data-Backed Answer
 
+## Opening Orientation
+
+MAGPAI Session 1 starts by locating the demo inside the AI/ML stack.
+
+The first stack view shows where MAGPAI starts: the language layer, where text becomes tokens, token IDs, vectors, tensors, and model input.
+
+The second stack view shows what the layers are based on: mathematics, computer science, engineering, linguistics, information theory, statistics, optimization, risk science, and related disciplines.
+
+That orientation prepares the audience for the main Session 1 story: a business question becoming numeric model input and then a chart-backed answer.
+
 ## Human Question
 
 ```text

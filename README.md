@@ -6,7 +6,7 @@
 
 MAGPAI is a tiny, transparent educational AI model and demo lab designed to explain how modern AI systems work under the covers.
 
-MAGPAI is not intended to be a production model. It is a teaching platform for understanding, inspecting, running, visualizing, and explaining AI concepts through slides, diagrams, Python code, notebooks, and local runtime demos.
+MAGPAI is not intended to be a production model. It is a teaching platform for understanding, inspecting, running, visualizing, and explaining AI concepts through documentation, diagrams, Python code, notebooks, and local runtime demos.
 
 ## Purpose
 
@@ -27,7 +27,7 @@ MAGPAI helps engineers understand:
 
 | Session | Title | Main Demo |
 |---:|---|---|
-| 01 | Text to Tokens to Vectors | Tokenizer + embedding visualizer |
+| 01 | AI/ML Stack to Tokens to Vectors | 19-slide PowerPoint, Diavgeia teleprompter, tokenizer, embedding, and chart-backed answer demos |
 | 02 | Next Token Prediction | Probability distribution demo |
 | 03 | Training Loop | Loss curve + weight update demo |
 | 04 | Attention | Attention heatmap demo |
@@ -40,7 +40,6 @@ MAGPAI helps engineers understand:
 
 ```text
 docs/       Documentation, session outlines, ADRs, glossary
-slides/     PowerPoint source and exports
 diagrams/   draw.io, Mermaid, SVG, PNG, PDF diagrams
 notebooks/  Jupyter notebooks for teaching demos
 src/        Reusable Python source code
@@ -51,8 +50,26 @@ models/     Local checkpoints and model exports
 runs/       TensorBoard / PyTorch runtime output
 reports/    Generated coverage, profiling, and documentation reports
 scripts/    Developer automation scripts
+pptx/       PowerPoint presentation artifacts
 diavgeia/   Diavgeia-ready documentation entry points
 ```
+
+## Session 01 Materials
+
+Session 01 is the current built-out learning module. It starts with two stack-orientation visuals, then walks through how a business question becomes token IDs, vectors, an input tensor, and a chart-backed answer.
+
+Key artifacts:
+
+```text
+pptx/Session_01_Tokens_v1.0.pptx
+diavgeia/MAGPAI/Session1/00_Session1_Teleprompter_Index.md
+images/full_stack_ai_ml_mental_model_16_layers_magpai_start.png
+images/full_stack_ai_ml_mental_model_16_layers_science_math.png
+images/magpai_from_question_to_insight.png
+docs/session_01_tokens/
+```
+
+The Diavgeia teleprompter currently contains 19 numbered slide pages plus live-demo support pages.
 
 ## Quick Start
 
@@ -100,8 +117,11 @@ python -m magpai.chatbot --trace --question "are mag sales up in Chicago?"
 Build local documentation with MkDocs:
 
 ```powershell
+.\.venv\Scripts\Activate.ps1
 mkdocs serve
 ```
+
+The local docs site includes architecture notes, Session 01 details, demo material, talking points, glossary, and ADRs.
 
 ## Diavgeia Vault Export
 
@@ -115,6 +135,12 @@ Default target:
 
 ```text
 D:\DiavgeiaVault\Engineering\MAGPAI\Session1
+```
+
+The export also copies required MAGPAI image attachments to:
+
+```text
+D:\DiavgeiaVault\Attachments\Images\MAGPAI
 ```
 
 ## Artifact Naming Standard

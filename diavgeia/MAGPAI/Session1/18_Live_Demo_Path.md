@@ -1,17 +1,17 @@
 ﻿---
-title: Slide 17 - Live Demo Path
+title: Slide 18 - Live Demo Path
 tags:
   - magpai
   - session1
   - teleprompter
-slide: 17
+slide: 18
 ---
 
-# Slide 17 - Live Demo Path
+# Slide 18 - Live Demo Path
 
 ## Slide Intent
 
-Orient the audience before switching from slides to VS Code and Streamlit.
+Orient the audience before switching from presenter notes to VS Code and Streamlit.
 
 ## Say This
 
@@ -36,11 +36,11 @@ Demo 3: embedding_lookup_linear_algebra_demo.py
 Lookup vs matrix multiply
 ```
 
-The point is to show that the slide concepts are not just diagrams. The code produces the same transformations.
+The point is to show that the walkthrough concepts are not just diagrams. The code produces the same transformations.
 
 ## Key Points
 
-- The live demos follow the slide pipeline.
+- The live demos follow the walkthrough pipeline.
 - The terminal demo prints the raw transformation steps.
 - The Streamlit app makes the table easier to scan.
 - The embedding demo connects lookup to matrix multiplication.
@@ -55,4 +55,6 @@ The point is to show that the slide concepts are not just diagrams. The code pro
 ## Transition
 
 Start with the terminal token pipeline.
+
+
 
