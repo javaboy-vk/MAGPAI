@@ -35,6 +35,16 @@ becomes:
 
 The tokenizer is not deciding whether sales are up. It is only preparing the text for lookup.
 
+## For example:
+For ChatGPT 4 an average token is approximately ¾ of the length of a word. 
+So, 100 tokens are approximately 75 words.
+GPT4 vocabulary size is 100,256
+
+There are fewer unique tokens than unique words. 
+This reduces the model’s vocabulary which makes the model more efficient.
+Token balances having more meaning than words, while retaining more meaning than individual characters.
+
+
 ## Key Points
 
 - A token is a text piece the system can look up.

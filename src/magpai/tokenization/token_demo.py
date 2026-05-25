@@ -32,6 +32,11 @@ result = tokenizer.encode(sentence)
 
 # ------------------------------------------------------------
 # 3. Embedding vectors
+#
+# The torch package contains data structures for multi-dimensional tensors 
+# and defines mathematical operations over these tensors. Additionally, 
+# it provides many utilities for efficient serialization of Tensors 
+# and arbitrary types, and other useful utilities.
 # ------------------------------------------------------------
 
 torch.manual_seed(7)
@@ -40,6 +45,7 @@ embedding = torch.nn.Embedding(
     num_embeddings=len(vocab),
     embedding_dim=4,
 )
+
 
 vectors = embedding(torch.tensor(result.token_ids))
 
@@ -63,5 +69,5 @@ print(result.token_ids)
 print("\nEmbedding vectors:")
 print(vectors)
 
-print("\nTeaching point:")
+print("\nTakeway point:")
 print("Text becomes tokens. Tokens become IDs. IDs become vectors.")

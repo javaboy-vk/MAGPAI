@@ -9,9 +9,17 @@ Description : Streamlit visualization showing how text becomes tokens,
 ============================================================
 """
 
+from pathlib import Path
+import sys
+
 import pandas as pd
 import streamlit as st
 import torch
+
+if __package__ in {None, ""}:
+    src_dir = Path(__file__).resolve().parents[2]
+    if str(src_dir) not in sys.path:
+        sys.path.insert(0, str(src_dir))
 
 from magpai.tokenization.manual_tokenizer import ManualTokenizer, build_demo_vocab
 
@@ -21,12 +29,12 @@ from magpai.tokenization.manual_tokenizer import ManualTokenizer, build_demo_voc
 # ------------------------------------------------------------
 
 st.set_page_config(
-    page_title="MAGPAI Session 1 - Tokens",
+    page_title="MAGPAI - Tokens",
     page_icon="🧠",
     layout="wide",
 )
 
-st.title("MAGPAI Session 1 — From Sentence to Tokens to Vectors")
+st.title("MAGPAI — From Sentence to Tokens to Vectors")
 st.subheader("How Text Becomes Numbers")
 
 st.markdown(
@@ -122,7 +130,7 @@ for token, token_id, vector in zip(result.tokens, result.token_ids, vectors):
 df = pd.DataFrame(rows)
 
 st.markdown("## Word → Token ID → Vector")
-st.dataframe(df, use_container_width=True)
+st.dataframe(df, width="stretch")
 
 
 # ------------------------------------------------------------

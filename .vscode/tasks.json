@@ -29,7 +29,7 @@
     {
       "label": "MAGPAI - Run Token Visualizer",
       "type": "shell",
-      "command": ".\\.venv\\Scripts\\streamlit.exe run apps/streamlit/token_visualizer_app.py",
+      "command": "$env:PYTHONPATH='${workspaceFolder}\\src'; .\\.venv\\Scripts\\streamlit.exe run src/magpai/tokenization/token_streamlit_app.py",
       "problemMatcher": []
     },
     {

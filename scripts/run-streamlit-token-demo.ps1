@@ -2,4 +2,5 @@ Write-Host "==========================================="
 Write-Host "MAGPAI Token Visualizer – v1.0"
 Write-Host "==========================================="
 
-.\.venv\Scripts\streamlit.exe run apps/streamlit/token_visualizer_app.py
+$env:PYTHONPATH = Join-Path (Resolve-Path ".") "src"
+.\.venv\Scripts\streamlit.exe run src/magpai/tokenization/token_streamlit_app.py
