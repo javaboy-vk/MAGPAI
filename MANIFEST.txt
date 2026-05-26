@@ -35,6 +35,8 @@ docs/session_01_tokens/Session_01_Tokens_Integration_Note_v1.2.md
 docs/session_01_tokens/Session_01_Tokens_Slide_Story_v1.2.md
 docs/demo/magpai_chatbot_v0_1.md
 docs/demo/magpai_chatbot_story_v0_1.md
+docs/demo/tokenizer_lab.md
+docs/demo/embedding_lab.md
 docs/talking-points/magpai_chatbot_teleprompter_v0_1.md
 pptx/Session_01_Tokens_v1.0.pptx
 requirements/session_01_tokens.txt

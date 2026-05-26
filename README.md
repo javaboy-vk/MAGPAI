@@ -123,6 +123,13 @@ mkdocs serve
 
 The local docs site includes architecture notes, Session 01 details, demo material, talking points, glossary, and ADRs.
 
+Interactive demos available in the MkDocs site:
+
+```text
+Demos -> Tokenizer Lab
+Demos -> Embedding Lab
+```
+
 ## Diavgeia Vault Export
 
 Export the Diavgeia-ready presenter material to the local vault:
