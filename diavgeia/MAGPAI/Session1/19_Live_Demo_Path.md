@@ -1,13 +1,13 @@
 ﻿---
-title: Slide 18 - Live Demo Path
+title: Slide 19 - Live Demo Path
 tags:
   - magpai
   - session1
   - teleprompter
-slide: 18
+slide: 19
 ---
 
-# Slide 18 - Live Demo Path
+# Slide 19 - Live Demo Path
 
 ## Slide Intent
 
@@ -55,6 +55,7 @@ The point is to show that the walkthrough concepts are not just diagrams. The co
 ## Transition
 
 Start with the terminal token pipeline.
+
 
 
 

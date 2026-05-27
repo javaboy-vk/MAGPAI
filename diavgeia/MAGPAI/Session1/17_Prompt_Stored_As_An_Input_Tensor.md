@@ -1,13 +1,13 @@
 ﻿---
-title: Slide 16 - Prompt Stored as an Input Tensor
+title: Slide 17 - Prompt Stored as an Input Tensor
 tags:
   - magpai
   - session1
   - teleprompter
-slide: 16
+slide: 17
 ---
 
-# Slide 16 - Prompt Stored as an Input Tensor
+# Slide 17 - Prompt Stored as an Input Tensor
 
 ## Slide Intent
 
@@ -59,6 +59,7 @@ This is the clean starting point for Session 2: how a neural-network layer trans
 ## Transition
 
 Now we will look at the full question-to-insight flow as one dashboard view.
+
 
 
 

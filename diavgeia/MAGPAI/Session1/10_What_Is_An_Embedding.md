@@ -32,6 +32,29 @@ Those vector rows are not calculated from the spelling of the word during the de
 
 In real models, the values are learned during training so that useful relationships become easier for the neural network to process.
 
+**Why Floating Point Numbers?**
+
+- Integers cannot express semantic distance well.
+- Floating point numbers allow:
+smooth learning
+partial similarity
+geometric relationships
+
+- Neural networks operate using:
+matrix multiplication
+linear algebra
+gradients
+optimization
+
+
+**How can tokens become floating points parts of a vector?**
+- No magic conversion exists.
+- They are learned parameters.
+
+The vector is simiply:
+- initialized randomly
+- adjusted during training millions or billions of times
+
 ## Key Points
 
 - An embedding is a learned numeric representation.
@@ -41,7 +64,7 @@ In real models, the values are learned during training so that useful relationsh
 
 ## Transition
 
-Now we can explain embedding lookup as selecting a row from this table.
+Before we explain lookup, we need one more idea: training turns those rows into geometric coordinates of meaning.
 
 
 

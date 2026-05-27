@@ -32,15 +32,16 @@ Each page maps to one presentation slide or live-demo cue. Keep Diavgeia open on
 | 08 | [[08_What_Are_Tokens_And_Tokenizers]] | Define token and tokenizer before token IDs. |
 | 09 | [[09_Tokenizer_Step_2_Token_IDs]] | Explain vocabulary lookup. |
 | 10 | [[10_What_Is_An_Embedding]] | Define embeddings and show a tiny embedding table. |
-| 11 | [[11_Embedding_Lookup]] | Explain token IDs becoming vectors. |
-| 12 | [[12_What_Is_A_Vector]] | Define vector and the sales vector lookup path. |
-| 13 | [[13_How_Token_ID_3_Becomes_A_Vector]] | Explain row lookup. |
-| 14 | [[14_Linear_Algebra_View]] | Explain one-hot multiplication equivalence. |
-| 15 | [[15_What_Is_A_Tensor]] | Define tensor and activation tensor. |
-| 16 | [[16_Prompt_Stored_As_An_Input_Tensor]] | Show the original prompt stored as a token-vector tensor. |
-| 17 | [[17_From_Question_To_Insight]] | Show the full question-to-insight dashboard image. |
-| 18 | [[18_Live_Demo_Path]] | Introduce the live demo path. |
-| 19 | [[19_Audience_Takeaway]] | Close with the durable enterprise mental model. |
+| 11 | [[11_Embeddings_Learned_Geometric_Coordinates_Of_Meaning]] | Explain training, vector geometry, analogies, and sentence embeddings. |
+| 12 | [[12_Embedding_Lookup]] | Explain token IDs becoming vectors. |
+| 13 | [[13_What_Is_A_Vector]] | Define vector and the sales vector lookup path. |
+| 14 | [[14_How_Token_ID_3_Becomes_A_Vector]] | Explain row lookup. |
+| 15 | [[15_Linear_Algebra_View]] | Explain one-hot multiplication equivalence. |
+| 16 | [[16_What_Is_A_Tensor]] | Define tensor and activation tensor. |
+| 17 | [[17_Prompt_Stored_As_An_Input_Tensor]] | Show the original prompt stored as a token-vector tensor. |
+| 18 | [[18_From_Question_To_Insight]] | Show the full question-to-insight dashboard image. |
+| 19 | [[19_Live_Demo_Path]] | Introduce the live demo path. |
+| 20 | [[20_Audience_Takeaway]] | Close with the durable enterprise mental model. |
 
 ## Live Demo Support Pages
 

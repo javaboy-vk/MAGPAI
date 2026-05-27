@@ -1,13 +1,13 @@
 ﻿---
-title: Slide 15 - What Is a Tensor?
+title: Slide 16 - What Is a Tensor?
 tags:
   - magpai
   - session1
   - teleprompter
-slide: 15
+slide: 16
 ---
 
-# Slide 15 - What Is a Tensor?
+# Slide 16 - What Is a Tensor?
 
 ## Slide Intent
 
@@ -51,6 +51,7 @@ The important mental model is: the words are gone by this point. The neural netw
 ## Transition
 
 Now we will show the original prompt visually as the tensor the NN receives.
+
 
 
 
