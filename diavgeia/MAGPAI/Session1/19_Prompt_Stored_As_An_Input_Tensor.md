@@ -1,13 +1,13 @@
 ﻿---
-title: Slide 17 - Prompt Stored as an Input Tensor
+title: Slide 19 - Prompt Stored as an Input Tensor
 tags:
   - magpai
   - session1
   - teleprompter
-slide: 17
+slide: 19
 ---
 
-# Slide 17 - Prompt Stored as an Input Tensor
+# Slide 19 - Prompt Stored as an Input Tensor
 
 ## Slide Intent
 

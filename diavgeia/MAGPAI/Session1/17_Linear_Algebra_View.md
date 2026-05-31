@@ -1,13 +1,13 @@
 ﻿---
-title: Slide 15 - Linear Algebra View
+title: Slide 17 - Linear Algebra View
 tags:
   - magpai
   - session1
   - teleprompter
-slide: 15
+slide: 17
 ---
 
-# Slide 15 - Linear Algebra View
+# Slide 17 - Linear Algebra View
 
 ## Slide Intent
 
@@ -42,7 +42,7 @@ But conceptually, this view helps us connect the lookup to matrix multiplication
 
 ## Transition
 
-Now we can explain what reaches the neural network before switching to code.
+Now we can name the stored numeric object the neural network processes.
 
 
 

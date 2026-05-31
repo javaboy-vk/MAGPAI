@@ -42,7 +42,7 @@ The integer 3 does not contain the meaning of sales. It points to a learned row 
 
 ## Transition
 
-There is also a useful linear algebra way to understand this same lookup.
+Now that the token ID has become a vector, we can explain what the neural network actually receives.
 
 
 

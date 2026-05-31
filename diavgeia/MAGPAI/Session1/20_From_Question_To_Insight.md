@@ -1,13 +1,13 @@
 ﻿---
-title: Slide 18 - From Question to Insight
+title: Slide 20 - From Question to Insight
 tags:
   - magpai
   - session1
   - teleprompter
-slide: 18
+slide: 20
 ---
 
-# Slide 18 - From Question to Insight
+# Slide 20 - From Question to Insight
 
 ## Slide Intent
 

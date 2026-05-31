@@ -1,13 +1,13 @@
 ﻿---
-title: Slide 16 - What Is a Tensor?
+title: Slide 18 - What Is a Tensor?
 tags:
   - magpai
   - session1
   - teleprompter
-slide: 16
+slide: 18
 ---
 
-# Slide 16 - What Is a Tensor?
+# Slide 18 - What Is a Tensor?
 
 ## Slide Intent
 

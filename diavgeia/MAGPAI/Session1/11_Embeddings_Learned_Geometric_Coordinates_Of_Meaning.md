@@ -61,7 +61,7 @@ This is why famous analogies can work:
 king - man + woman ~= queen
 ```
 
-The vectors capture semantic structure.
+**The vectors capture semantic structure**.
 
 ## Sentence Embeddings
 
@@ -86,11 +86,11 @@ can become one giant vector:
 [0.192, -0.551, 0.882, ... 1536 dimensions ...]
 ```
 
-That vector captures business context, upward trend, location, and organizational semantics.
+## That vector captures business context, upward trend, location, and organizational semantics.
 
 ## Why This Works
 
-Language has statistical structure.
+**Language has statistical structure**.
 
 Words appearing in similar contexts tend to have related meanings.
 
@@ -111,4 +111,4 @@ This is one of the foundational ideas behind Word2Vec, GloVe, BERT, GPT, and mod
 
 ## Transition
 
-Now that the geometry has meaning, we can return to the lookup operation and show how token IDs retrieve those learned rows.
+Now that the **geometry has meaning**, we can return to the lookup operation and show how token IDs retrieve those learned rows.

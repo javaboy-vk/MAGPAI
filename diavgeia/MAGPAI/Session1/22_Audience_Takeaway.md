@@ -1,13 +1,13 @@
 ﻿---
-title: Slide 20 - Audience Takeaway
+title: Slide 22 - Audience Takeaway
 tags:
   - magpai
   - session1
   - teleprompter
-slide: 20
+slide: 22
 ---
 
-# Slide 20 - Audience Takeaway
+# Slide 22 - Audience Takeaway
 
 ## Slide Intent
 
