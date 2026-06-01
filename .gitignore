@@ -46,6 +46,11 @@ dist/
 output/
 outputs/
 
+# Browser/Playwright verification artifacts
+.playwright-mcp/
+playwright-report/
+test-results/
+
 # Local Python environment/runtime files
 pip-log.txt
 pip-delete-this-directory.txt

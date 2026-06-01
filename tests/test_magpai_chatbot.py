@@ -20,6 +20,7 @@ def test_expected_question_returns_sales_question_result(tmp_path):
     )
 
     assert result.decision.intent == "sales_question"
+    assert result.vectorized_tokens.shape == (6, 4)
     assert result.decision.location == "Chicago"
     assert result.decision.metric == "sales"
     assert result.sales_data is not None
@@ -27,4 +28,3 @@ def test_expected_question_returns_sales_question_result(tmp_path):
     assert result.sales_data.this_month == 1_500_000
     assert result.sales_data.change_percent == 25.0
     assert result.chart_path is None
-

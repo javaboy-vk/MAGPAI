@@ -27,15 +27,14 @@ class TinyVectorizer:
 
     def __init__(self) -> None:
         self.embedding_table: dict[str, list[float]] = {
-            "are": [0.10, 0.00, 0.00],
-            "mag": [0.90, 0.10, 0.10],
-            "sales": [0.20, 0.90, 0.10],
-            "up": [0.10, 0.80, 0.20],
-            "in": [0.00, 0.10, 0.00],
-            "chicago": [0.10, 0.20, 0.90],
+            "are": [0.10, 0.00, 0.00, 0.20],
+            "mag": [0.90, 0.10, 0.10, 0.80],
+            "sales": [0.20, 0.90, 0.10, 0.70],
+            "up": [0.10, 0.80, 0.20, 0.60],
+            "in": [0.00, 0.10, 0.00, 0.10],
+            "chicago": [0.10, 0.20, 0.90, 0.75],
         }
 
     def vectorize(self, tokens: list[str]) -> VectorizedTokens:
-        vectors = [self.embedding_table.get(token, [0.00, 0.00, 0.00]) for token in tokens]
+        vectors = [self.embedding_table.get(token, [0.00, 0.00, 0.00, 0.00]) for token in tokens]
         return VectorizedTokens(tokens=tokens, vectors=vectors)
-

@@ -6,31 +6,7 @@ theme:
   name: material
 
 nav:
-  - Home: index.md
-  - Architecture:
-      - Conceptual Architecture: architecture/magpai-conceptual-architecture-v1.0.md
-      - Runtime Flow: architecture/magpai-runtime-flow-v1.0.md
-      - Learning Objectives: architecture/magpai-learning-objectives-v1.0.md
-  - Sessions:
-      - Session 01 - Tokens: sessions/session-01-tokens/session-01-outline.md
-      - Session 01 - Slide Story: session_01_tokens/Session_01_Tokens_Slide_Story_v1.2.md
-      - Session 01 - Embeddings: session_01_tokens/Session_01_Tokens_Embedding_Explanation_v1.2.md
-      - Session 01 - Integration Note: session_01_tokens/Session_01_Tokens_Integration_Note_v1.2.md
-      - Session 02 - Next Token Prediction: sessions/session-02-next-token-prediction/session-02-outline.md
-      - Session 03 - Training Loop: sessions/session-03-training-loop/session-03-outline.md
-      - Session 04 - Attention: sessions/session-04-attention/session-04-outline.md
-      - Session 05 - Tiny Transformer: sessions/session-05-tiny-transformer/session-05-outline.md
-      - Session 06 - Local Inference: sessions/session-06-local-inference/session-06-outline.md
-      - Session 07 - Observability: sessions/session-07-observability/session-07-outline.md
-      - Session 08 - Enterprise Safety: sessions/session-08-enterprise-safety/session-08-outline.md
-  - Demos:
+  - Demo:
       - Tokenizer Lab: demo/tokenizer_lab.md
       - Embedding Lab: demo/embedding_lab.md
       - Chatbot Demo: demo/magpai_chatbot_v0_1.md
-      - Chatbot Story: demo/magpai_chatbot_story_v0_1.md
-      - Chatbot Teleprompter: talking-points/magpai_chatbot_teleprompter_v0_1.md
-  - Glossary: glossary/ai-glossary-v1.0.md
-  - Decisions:
-      - ADR 0001 - Project Name: decisions/adr-0001-project-name-magpai.md
-      - ADR 0002 - Python PyTorch Stack: decisions/adr-0002-python-pytorch-stack.md
-      - ADR 0003 - Demo First Architecture: decisions/adr-0003-demo-first-architecture.md
