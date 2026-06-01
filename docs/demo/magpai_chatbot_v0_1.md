@@ -19,7 +19,7 @@
         id="chatbot-question"
         class="prompt-input"
         type="text"
-        value="are mag sales up in Chicago?"
+        placeholder="Type a prompt, then click Run"
         autocomplete="off"
       />
       <button id="chatbot-run" class="run-button" type="button">Run</button>
@@ -481,7 +481,15 @@
     }
 
     function runDemo() {
-      const question = document.getElementById("chatbot-question").value;
+      const question = document.getElementById("chatbot-question").value.trim();
+
+      if (!question) {
+        document.getElementById("chatbot-response").innerHTML = "";
+        document.getElementById("chatbot-trace-panel").hidden = true;
+        document.getElementById("chatbot-chart-panel").hidden = true;
+        return;
+      }
+
       const result = processQuestion(question);
       renderResponse(result);
       renderTrace(result);
@@ -495,7 +503,5 @@
       }
     });
     document.getElementById("chatbot-trace-toggle").addEventListener("change", runDemo);
-
-    runDemo();
   })();
 </script>
