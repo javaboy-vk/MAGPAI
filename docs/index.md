@@ -12,6 +12,14 @@ It combines:
 - Streamlit apps
 - FastAPI local services
 
+## Demo Index
+
+- [Tokenizer Lab](demo/tokenizer_lab.md)
+- [Embedding Lab](demo/embedding_lab.md)
+- [Chatbot Demo](demo/magpai_chatbot_v0_1.md)
+- [MAGPAI Tiny Neural Network Training v1.0](demo/MAGPAI_Weight_Bias_Visual_Trainer_v1.0.html)
+- [MAGPAI Tiny Neural Network Training v2.0](demo/MAGPAI_Tiny_ANN_Trainer_v2.0.html)
+
 ## Core Principle
 
 MAGPAI treats AI as inspectable software.
