@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MAGPAI Tiny Neural Network Training v1.0</title>
+  <title>Neural Network Training v1</title>
   <style>
     :root {
       --bg: #eef3f8;
@@ -127,6 +127,11 @@
 
     button.secondary {
       background: #526274;
+    }
+
+    button:disabled {
+      cursor: not-allowed;
+      opacity: 0.48;
     }
 
     button:hover {
@@ -369,7 +374,7 @@
 </head>
 <body>
   <header>
-    <h1>MAGPAI Tiny Neural Network Training v1.0</h1>
+    <h1>Neural Network Training v1</h1>
     <p>Artifact: MAGPAI Weight & Bias Visual Trainer – v1.0 | Use Enter or the button to advance one training example at a time.</p>
   </header>
 
@@ -382,6 +387,7 @@
           <div id="targetText" class="hint">Goal: show how tensor values, vector position, weights, and bias change during training.</div>
         </div>
         <div>
+          <button id="lastBtn" class="secondary">Last step</button>
           <button id="nextBtn">Next Step / Enter</button>
           <button id="resetBtn" class="secondary">Reset</button>
         </div>
@@ -824,16 +830,12 @@
 
       renderZeroTensor();
       renderVectorCanvas([0, 0, 0, 0, 0, 0]);
+      updateNavigationButtons();
     }
 
-    function nextStep() {
-      if (demo.index >= demo.examples.length) {
-        document.getElementById("narration").innerHTML =
-          "<span class='good'>Training pass complete.</span> Press Reset to run it again from zero-initialized weights and bias.";
-        return;
-      }
-
-      const example = demo.examples[demo.index];
+    function runCurrentStep() {
+      const stepIndex = demo.index;
+      const example = demo.examples[stepIndex];
       const sentenceVector = meanVector(example.tensor);
       const zBefore = dot(demo.weights, sentenceVector) + demo.bias;
       const pred = sigmoid(zBefore);
@@ -857,7 +859,7 @@
         "Training label: target = <strong>" + example.target + "</strong> " +
         (example.target === 1 ? "(YES, sales up)" : "(NO, not sales up)");
 
-      document.getElementById("stepValue").textContent = (demo.index + 1) + " / " + demo.examples.length;
+      document.getElementById("stepValue").textContent = (stepIndex + 1) + " / " + demo.examples.length;
       document.getElementById("predictionValue").textContent = fmt(pred);
       document.getElementById("targetValue").textContent = example.target;
       document.getElementById("errorValue").textContent = fmt(error);
@@ -897,6 +899,44 @@
       renderWeights();
 
       demo.index += 1;
+      updateNavigationButtons();
+    }
+
+    function nextStep() {
+      if (demo.index >= demo.examples.length) {
+        document.getElementById("narration").innerHTML =
+          "<span class='good'>Training pass complete.</span> Press Reset to run it again from zero-initialized weights and bias.";
+        updateNavigationButtons();
+        return;
+      }
+
+      runCurrentStep();
+    }
+
+    function goToStep(stepCount) {
+      demo.index = 0;
+      demo.weights = [0, 0, 0, 0, 0, 0];
+      demo.bias = 0;
+      demo.weightCalculations = [];
+      renderInitial();
+
+      for (let i = 0; i < stepCount; i++) {
+        runCurrentStep();
+      }
+    }
+
+    function lastStep() {
+      if (demo.index <= 1) {
+        goToStep(0);
+        return;
+      }
+
+      goToStep(demo.index - 1);
+    }
+
+    function updateNavigationButtons() {
+      document.getElementById("lastBtn").disabled = demo.index === 0;
+      document.getElementById("nextBtn").disabled = demo.index >= demo.examples.length;
     }
 
     function resetDemo() {
@@ -907,6 +947,7 @@
       renderInitial();
     }
 
+    document.getElementById("lastBtn").addEventListener("click", lastStep);
     document.getElementById("nextBtn").addEventListener("click", nextStep);
     document.getElementById("resetBtn").addEventListener("click", resetDemo);
 

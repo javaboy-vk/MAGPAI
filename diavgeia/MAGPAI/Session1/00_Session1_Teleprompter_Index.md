@@ -39,11 +39,9 @@ Each page maps to one presentation slide or live-demo cue. Keep Diavgeia open on
 | 15 | [[15_Embeddings_Become_Neural_Network_Activations]] | Explain embeddings becoming live neural-network activations. |
 | 16 | [[16_The_Transformer_ANN_Is_The_LLM_Core]] | Explain that the Transformer ANN is the LLM computational core. |
 | 16.A | [[16A_Neural_Language_Models_Transformers_Parameters]] | Summarize LLMs as neural language models plus Transformers plus billions of parameters. |
-| 17 | [[17_Linear_Algebra_View]] | Explain one-hot multiplication equivalence. |
 | 18 | [[18_What_Is_A_Tensor]] | Define tensor and activation tensor. |
 | 19 | [[19_Prompt_Stored_As_An_Input_Tensor]] | Show the original prompt stored as a token-vector tensor. |
 | 20 | [[20_From_Question_To_Insight]] | Show the full question-to-insight dashboard image. |
-| 21 | [[21_Live_Demo_Path]] | Introduce the live demo path. |
 | 22 | [[22_Audience_Takeaway]] | Close with the durable enterprise mental model. |
 
 ## Live Demo Support Pages
