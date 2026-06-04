@@ -169,6 +169,11 @@
       font-size: 19px;
     }
 
+    #predictionValue {
+      color: var(--green);
+      font-weight: 900;
+    }
+
     .tensor {
       display: grid;
       grid-template-columns: 90px repeat(6, 1fr);
@@ -198,7 +203,12 @@
 
     .flow {
       display: grid;
-      grid-template-columns: 1fr 70px 1fr 70px 1fr;
+      grid-template-columns:
+        minmax(430px, 1.15fr)
+        44px
+        minmax(560px, 1.25fr)
+        44px
+        minmax(320px, 0.85fr);
       gap: 8px;
       align-items: center;
       text-align: center;
@@ -210,6 +220,16 @@
       padding: 14px;
       background: #f6faff;
       min-height: 78px;
+    }
+
+    .linear-box {
+      text-align: left;
+    }
+
+    .sigmoid-box {
+      justify-self: end;
+      width: 100%;
+      max-width: 360px;
     }
 
     .arrow {
@@ -237,6 +257,66 @@
       font-size: 12px;
       line-height: 1.45;
       color: var(--muted);
+    }
+
+    #linearCalculation {
+      white-space: nowrap;
+      font-size: 11px;
+    }
+
+    #sigmoidOutput {
+      display: none;
+    }
+
+    #sigmoidCalculation {
+      white-space: nowrap;
+      font-size: 12px;
+    }
+
+    .confidence-highlight {
+      color: var(--green);
+      font-weight: 900;
+    }
+
+    .math-fraction {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: Cambria Math, Georgia, serif;
+      font-size: 20px;
+      color: #172033;
+      white-space: nowrap;
+    }
+
+    .fraction {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      line-height: 1.1;
+      vertical-align: middle;
+    }
+
+    .fraction .top {
+      border-bottom: 1px solid currentColor;
+      min-width: 100%;
+      padding: 0 8px 2px;
+      text-align: center;
+    }
+
+    .fraction .bottom {
+      padding-top: 2px;
+      text-align: center;
+    }
+
+    .e-note {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 12px;
+      font-family: Consolas, monospace;
+    }
+
+    #sentenceVectorCalculation {
+      white-space: nowrap;
     }
 
     .bar-row {
@@ -336,6 +416,11 @@
       font-weight: 800;
     }
 
+    .error-highlight {
+      color: var(--red);
+      font-weight: 900;
+    }
+
     .amber {
       color: var(--amber);
       font-weight: 800;
@@ -431,7 +516,7 @@
       <canvas id="vectorCanvas" width="700" height="420"></canvas>
       <p class="explain">
         The six-dimensional sentence vector is projected into 2D:
-        <strong>x = (sales + trend+ - trend-) / 2</strong>,
+        <strong>x = (sales + trend+ - trend-) / 3</strong>,
         <strong>y = (place + Chicago + question) / 3</strong>.
       </p>
       <p id="vectorProjectionNumbers" class="explain"></p>
@@ -446,15 +531,18 @@
           <div id="sentenceVectorCalculation" class="vector-calc">Press Enter to calculate the sentence vector.</div>
         </div>
         <div class="arrow">→</div>
-        <div class="box">
-          <div class="box-title">Linear Neuron</div>
+        <div class="box linear-box">
+          <div class="box-title">Linear Neuron (weighted sum + bias)</div>
           <div id="linearFormula" class="formula">z = w·x + b</div>
           <div id="linearCalculation" class="vector-calc">Press Enter to calculate z from weights, vector, and bias.</div>
         </div>
         <div class="arrow">→</div>
-        <div class="box">
-          <div class="box-title">Sigmoid Output</div>
+        <div class="box sigmoid-box">
+          <div class="box-title">Prediction Confidence</div>
           <div id="sigmoidOutput" class="formula">ŷ = σ(z)</div>
+          <div id="sigmoidCalculation" class="vector-calc">
+            Press Enter to convert z into prediction confidence.
+          </div>
         </div>
       </div>
     </section>
@@ -490,9 +578,9 @@
 
         <section class="panel">
           <h2>6. Error</h2>
-          <div id="errorFormula" class="formula">error = target - sigmoid output</div>
+          <div id="errorFormula" class="formula">error = target - prediction confidence</div>
           <div id="errorCalculation" class="vector-calc">
-            Press Enter to compare the target with the sigmoid output.
+            Press Enter to compare the target with the prediction confidence.
           </div>
           <p class="explain">
             Error tells training how far the prediction was from the target and which direction to move.
@@ -622,11 +710,26 @@
 
     function renderLinearCalculation(weights, sentenceVector, bias, z) {
       const terms = weights.map((weight, i) =>
-        "(" + fmt(weight) + " × " + fmt(sentenceVector[i]) + ")"
+        "(" + fmt(sentenceVector[i]) + " × " + fmt(weight) + ")"
       ).join(" + ");
       document.getElementById("linearCalculation").innerHTML =
-        "z = " + terms + " + " + fmt(bias) + "<br>" +
-        "z = <strong>" + fmt(z) + "</strong>";
+        terms + " + " + fmt(bias) + " = <strong>" + fmt(z) + "</strong>";
+    }
+
+    function renderSigmoidCalculation(z, prediction) {
+      document.getElementById("sigmoidCalculation").innerHTML =
+        "<div class='math-fraction'>" +
+        "<span>σ(z) =</span>" +
+        "<span class='fraction'><span class='top'>1</span>" +
+        "<span class='bottom'>1 + e<sup>−z</sup></span></span>" +
+        "</div>" +
+        "<div class='e-note'>e≈2.718 (Euler's constant)</div>" +
+        "<div class='math-fraction'>" +
+        "<span>σ(" + fmt(z) + ") =</span>" +
+        "<span class='fraction'><span class='top'>1</span>" +
+        "<span class='bottom'>1 + e<sup>−" + fmt(z) + "</sup></span></span>" +
+        "<span>= <span class='confidence-highlight'>" + fmt(prediction) + "</span></span>" +
+        "</div>";
     }
 
     function fmt(n) {
@@ -777,11 +880,11 @@
       ctx.fillText("sales / positive trend signal →", w - 260, originY - 12);
       ctx.fillText("location / question signal ↑", originX + 12, 42);
 
-      const x = (sentenceVector[0] + sentenceVector[2] - sentenceVector[4]) / 2;
+      const x = (sentenceVector[0] + sentenceVector[2] - sentenceVector[4]) / 3;
       const y = (sentenceVector[1] + sentenceVector[3] + sentenceVector[5]) / 3;
       document.getElementById("vectorProjectionNumbers").innerHTML =
         "<strong>x</strong> = (" + fmt(sentenceVector[0]) + " + " + fmt(sentenceVector[2]) +
-        " - " + fmt(sentenceVector[4]) + ") / 2 = <strong>" + fmt(x) + "</strong><br>" +
+        " - " + fmt(sentenceVector[4]) + ") / 3 = <strong>" + fmt(x) + "</strong><br>" +
         "<strong>y</strong> = (" + fmt(sentenceVector[1]) + " + " + fmt(sentenceVector[3]) +
         " + " + fmt(sentenceVector[5]) + ") / 3 = <strong>" + fmt(y) + "</strong>";
 
@@ -817,13 +920,17 @@
       document.getElementById("sentenceVector").textContent = "—";
       document.getElementById("sentenceVectorCalculation").textContent =
         "Press Enter to average the tensor rows into a sentence vector.";
-      document.getElementById("linearFormula").textContent = "z = w·x + b";
+      document.getElementById("linearFormula").textContent =
+        "z = Σ(dimension × weight) + bias";
       document.getElementById("linearCalculation").textContent =
         "Press Enter to calculate z from weights, vector, and bias.";
-      document.getElementById("sigmoidOutput").textContent = "ŷ = σ(z)";
-      document.getElementById("errorFormula").textContent = "error = target - sigmoid output";
+      document.getElementById("sigmoidOutput").textContent = "";
+      document.getElementById("sigmoidCalculation").textContent =
+        "Press Enter to convert z into prediction confidence.";
+      document.getElementById("errorFormula").textContent =
+        "error = target - prediction confidence";
       document.getElementById("errorCalculation").textContent =
-        "Press Enter to compare the target with the sigmoid output.";
+        "Press Enter to compare the target with the prediction confidence.";
       document.getElementById("narration").textContent = "Press Enter. MAGPAI will process one example, make a prediction, compare it to the target, then slightly change the weights and bias.";
       document.getElementById("updateExplanation").innerHTML = "";
       renderWeights();
@@ -850,7 +957,8 @@
       demo.bias = demo.bias + demo.learningRate * error;
       demo.weightCalculations = oldWeights.map((oldWeight, i) =>
         "w" + (i + 1) + " = " + fmt(oldWeight) + " + " + fmt(demo.learningRate) +
-        " × " + fmt(error) + " × " + fmt(sentenceVector[i]) +
+        " × <span class='error-highlight'>" + fmt(error) + "</span> × " +
+        fmt(sentenceVector[i]) +
         " = <strong>" + fmt(demo.weights[i]) + "</strong>"
       );
 
@@ -862,35 +970,42 @@
       document.getElementById("stepValue").textContent = (stepIndex + 1) + " / " + demo.examples.length;
       document.getElementById("predictionValue").textContent = fmt(pred);
       document.getElementById("targetValue").textContent = example.target;
-      document.getElementById("errorValue").textContent = fmt(error);
+      document.getElementById("errorValue").innerHTML =
+        "<span class='error-highlight'>" + fmt(error) + "</span>";
 
       document.getElementById("sentenceVector").textContent =
         "[" + sentenceVector.map(fmt).join(", ") + "]";
       renderSentenceVectorCalculation(example.tensor, sentenceVector);
-      document.getElementById("linearFormula").textContent =
-        "z = " + fmt(zBefore) + " = w·x + b";
+      document.getElementById("linearFormula").innerHTML =
+        "z = Σ(dimension × weight) + bias = <strong>" + fmt(zBefore) + "</strong>";
       renderLinearCalculation(oldWeights, sentenceVector, oldBias, zBefore);
-      document.getElementById("sigmoidOutput").textContent =
-        "ŷ = " + fmt(pred);
-      document.getElementById("errorFormula").textContent =
-        "error = " + fmt(error) + " = target - sigmoid output";
+      document.getElementById("sigmoidOutput").textContent = "";
+      renderSigmoidCalculation(zBefore, pred);
+      document.getElementById("errorFormula").innerHTML =
+        "error = target - prediction confidence = " +
+        "<span class='error-highlight'>" + fmt(error) + "</span>";
       document.getElementById("errorCalculation").innerHTML =
-        "error = " + example.target + " - " + fmt(pred) +
-        " = <strong>" + fmt(error) + "</strong>";
+        "error = " + example.target + " - <span class='confidence-highlight'>" + fmt(pred) +
+        "</span>" +
+        " = <span class='error-highlight'>" + fmt(error) + "</span>";
 
       const direction = error > 0 ? "too low" : "too high";
       const movement = error > 0 ? "increase" : "decrease";
 
       document.getElementById("narration").innerHTML =
         "MAGPAI processed the tensor, averaged it into a sentence vector, calculated " +
-        "<strong>z = w·x + b</strong>, then converted it to a prediction with sigmoid. " +
-        "The prediction was <strong>" + fmt(pred) + "</strong>, but the target was <strong>" +
+        "<strong>z = Σ(dimension × weight) + bias</strong>, then converted it to " +
+        "a prediction confidence with sigmoid. " +
+        "The prediction was <span class='confidence-highlight'>" + fmt(pred) +
+        "</span>, but the target was <strong>" +
         example.target + "</strong>. The prediction was <span class='amber'>" + direction +
         "</span>, so training nudged the weights and bias to <strong>" + movement +
         "</strong> the future score for similar inputs.";
 
       document.getElementById("updateExplanation").innerHTML =
-        "<strong>Bias update:</strong> " + fmt(oldBias) + " → " + fmt(demo.bias) +
+        "<strong>Bias update:</strong> new bias = old bias + learning rate × error" +
+        "<br>" + fmt(demo.bias) + " = " + fmt(oldBias) + " + " +
+        fmt(demo.learningRate) + " × <span class='error-highlight'>" + fmt(error) + "</span>" +
         "<br><strong>Weight example:</strong> sales weight " + fmt(oldWeights[0]) +
         " → " + fmt(demo.weights[0]);
 
