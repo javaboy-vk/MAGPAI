@@ -7,7 +7,7 @@ tags:
 slide: 04
 ---
 
-# Slide 04 - MAGPAI Session 1
+# Slide 04 - From Sentence to Tokens to Vectors - v1.0
 
 ## Say This
 

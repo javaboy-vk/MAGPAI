@@ -9,11 +9,9 @@ slide: 13
 
 # Slide 13 - Embeddings: Learned Geometric Coordinates of Meaning
 
-## Slide Intent
-
-Explain that embeddings do not start meaningful. They become meaningful because training moves vectors into useful geometric positions.
-
 ## Say This
+
+embeddings do not start meaningful. They become meaningful because training moves vectors into useful geometric positions.
 
 Initially, the embedding rows are just random numbers.
 

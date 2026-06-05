@@ -9,10 +9,6 @@ slide: 14
 
 # Slide 14 - Embedding Lookup
 
-## Slide Intent
-
-Introduce the embedding table as the place where IDs become vectors.
-
 ## Say This
 
 Now we can put the pieces together: token IDs retrieve vectors from the embedding table.

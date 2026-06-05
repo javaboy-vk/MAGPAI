@@ -9,10 +9,6 @@ slide: 05
 
 # Slide 05 - The Big Idea
 
-## Slide Intent
-
-Contrast how people read text with how models receive input.
-
 ## Say This
 
 People read words.
