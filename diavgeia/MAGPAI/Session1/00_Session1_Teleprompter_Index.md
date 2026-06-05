@@ -51,7 +51,6 @@ Each page maps to one presentation slide or live-demo cue. Keep Diavgeia open on
 | 20.C | [[20.C_Vision Neural Network Training]] | Run the vision neural-network training demo. |
 | 20.D | [[20.D_Chatbot Demo]] | Run the chatbot demo. |
 | 20.E | [[20.E_Agent Demo]] | Run the agent demo. |
-| 22 | [[22_Audience_Takeaway]] | Close with the durable enterprise mental model. |
 
 ## Live Demo Support Pages
 
