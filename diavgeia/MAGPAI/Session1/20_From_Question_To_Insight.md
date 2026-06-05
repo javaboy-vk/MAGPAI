@@ -9,10 +9,6 @@ slide: 20
 
 # Slide 20 - From Question to Insight
 
-## Slide Intent
-
-Show the full MAGPAI flow as one end-to-end visual before switching to live demos.
-
 ## Visual
 
 ![[magpai_from_question_to_insight.png]]
@@ -36,7 +32,14 @@ Neural-network input: 7 x 4
 Sales trend: 25.0%
 ```
 
-The point of the slide is not that this tiny neural network is production-grade. The point is that each step is inspectable.
+The point of the slide is not that this tiny neural network is production-grade. 
+The point is that each step is inspectable.
+
+## Transition
+
+Now I will switch to live demos and show the pipeline running.
+
+
 
 ## Key Points
 
@@ -46,9 +49,6 @@ The point of the slide is not that this tiny neural network is production-grade.
 - The tiny NN consumes the tensor and produces an output path.
 - The final answer is backed by data and a chart.
 
-## Transition
-
-Now I will switch from the walkthrough to code and show the pipeline running.
 
 
 

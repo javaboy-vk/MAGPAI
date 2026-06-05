@@ -46,7 +46,12 @@ shape = [7 token positions, 4 vector dimensions]
 
 The neural network layers start from this tensor. They do not receive the raw sentence, and they do not receive the token IDs as the main representation. They receive the vector grid.
 
-This is the clean starting point for Session 2: how a neural-network layer transforms that tensor.
+## Transition
+
+Now we will look at the full question-to-insight flow as one dashboard view.
+
+
+
 
 ## Key Points
 
@@ -56,9 +61,6 @@ This is the clean starting point for Session 2: how a neural-network layer trans
 - The NN starts from this activation tensor.
 - Session 2 begins with layer computation over this tensor.
 
-## Transition
-
-Now we will look at the full question-to-insight flow as one dashboard view.
 
 
 

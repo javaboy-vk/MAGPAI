@@ -18,11 +18,10 @@ Explain why modern LLMs are called **language models** even though they are impl
 
 As an LLM is a large ANN, why do we call them language models and not large artificial neural networks?
 
-That is a very good observation.
-
 Technically, modern LLMs **are** very large artificial neural networks.
 
-The reason we call them **Language Models** instead of **Large Artificial Neural Networks** is that the name emphasizes their **purpose**, not their implementation.
+The reason we call them **Language Models** instead of **Large Artificial Neural Networks** 
+is that the name emphasizes their **purpose**, not their implementation.
 
 ## Purpose Versus Implementation
 
@@ -156,18 +155,6 @@ The ANN is simply the machinery used to learn that probability distribution.
 
 ## Why "Large"?
 
-Earlier language models existed before neural networks:
-
-- Statistical language models
-
-For example:
-
-```text
-P(word | previous 2 words)
-```
-
-These were language models too.
-
 When researchers began using enormous neural networks with billions of parameters, the term became:
 
 ```text
@@ -185,31 +172,96 @@ because it is:
 A modern LLM is essentially:
 
 ```text
-Tokens
+Tokens   are the small pieces of text that an AI model actually reads.
    |
    v
-Embeddings
+Embeddings  are numerical vectors that represent the meaning of tokens.
    |
    v
-Transformer Layers
+Transformer Layers  are the main processing layers of a modern language model.
    |
    v
-Attention
+Attention  Attention is the mechanism that lets the model decide which tokens should pay attention to which other tokens.
    |
    v
-Feed Forward Networks
+Feed Forward Networks are NN blocks inside each transformer layer that further process and transform the token vectors.
    |
    v
-Output Probabilities
+Output Probabilities are the model’s final prediction scores for possible next tokens or answers.
 ```
 
 Notice something important:
-
 The transformer itself is composed of neural network layers.
-
 So inside an LLM there are actually many ANNs.
-
 Everything inside is neural-network mathematics.
+
+## Transformer
+Each transformer layer takes the embedding vectors and repeatedly refines them.
+At the beginning, the vector for sales mostly represents the token itself.
+After passing through transformer layers, the vector for sales becomes context-aware.
+
+For example, in: Are MAG sales up in Chicago?
+the model learns that sales is related to:
+
+MAG
+up
+Chicago
+business performance
+a question being asked
+
+So transformer layers turn isolated token vectors into contextual meaning.
+
+## Attention
+
+Attention helps the model understand relationships between words.
+
+In the sentence:
+
+Are MAG sales up in Chicago?
+
+the token sales should strongly pay attention to:
+
+MAG
+up
+Chicago
+?
+
+because those tokens help define what kind of sales, what direction, what location, and whether this is a question.
+
+## Feed Forward Networks
+After attention finds relationships between tokens, the feed forward network applies learned patterns to each token representation.
+
+It helps the model recognize things like:
+
+This is a sales question.
+This involves a location.
+This asks about trend direction.
+This may require data lookup or analysis.
+
+For MAGPAI, this is where the model starts moving from raw text meaning toward useful interpretation.
+
+
+## Output probabilities
+The model does not directly “choose a word” the way a human does.
+
+Instead, it calculates probabilities.
+
+For example, after reading:
+
+MAG sales are
+
+the model may assign probabilities like:
+
+up      62%
+down    21%
+flat    12%
+unknown  5%
+
+The model then selects an output based on those probabilities.
+
+For MAGPAI, output probabilities can represent possible answers, actions, or next steps.
+
+In **MAGPAI**, text becomes tokens, tokens become vectors, vectors move through transformer layers, attention finds relationships, feed forward networks transform meaning, and the model produces probabilities for what to answer or do next.
 
 
 ## Is The ANN The "Brain"?
@@ -246,28 +298,6 @@ or:
 LLM = ANN specialized for language
 ```
 
-## For MAGPAI
-
-```text
-User Question
-"Are MAG sales up in Chicago?"
-            |
-            v
-Tokenization
-            |
-            v
-Embeddings
-            |
-            v
-Artificial Neural Network
-(Transformer)
-            |
-            v
-Language Model Reasoning
-            |
-            v
-Answer
-```
 
 > "The LLM is the application. The ANN is the engine inside it."
 
