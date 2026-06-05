@@ -1,13 +1,13 @@
 ---
-title: Slide 11 - Embeddings: Learned Geometric Coordinates of Meaning
+title: Slide 13 - Embeddings: Learned Geometric Coordinates of Meaning
 tags:
   - magpai
   - session1
   - teleprompter
-slide: 11
+slide: 13
 ---
 
-# Slide 11 - Embeddings: Learned Geometric Coordinates of Meaning
+# Slide 13 - Embeddings: Learned Geometric Coordinates of Meaning
 
 ## Slide Intent
 

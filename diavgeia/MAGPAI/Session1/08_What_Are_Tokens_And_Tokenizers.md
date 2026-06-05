@@ -9,13 +9,7 @@ slide: 08
 
 # Slide 08 - What Are Tokens and Tokenizers?
 
-## Slide Intent
-
-Pause after the first token list and define the two new terms before moving to token IDs.
-
 ## Say This
-
-Before we continue, we need two precise words.
 
 A **token** is a known text piece the model system can handle. In this demo, a token is usually a word, plus the question mark as its own token.
 
@@ -51,6 +45,17 @@ This reduces the model’s vocabulary which makes the model more efficient.
 Token balances having more meaning than words, while retaining more meaning than individual characters.
 
 
+## Tokenizer Lab Demo
+Show how we can covert a word into tokens
+
+## Transition
+
+Now that we know what tokens are, we can map each token to a token ID.
+
+
+
+
+
 ## Key Points
 
 - A token is a text piece the system can look up.
@@ -58,6 +63,4 @@ Token balances having more meaning than words, while retaining more meaning than
 - In the teaching demo, the tokenization rule is deliberately simple.
 - Tokenization is preparation, not understanding.
 
-## Transition
 
-Now that we know what tokens are, we can map each token to a token ID.

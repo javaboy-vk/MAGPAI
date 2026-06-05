@@ -1,17 +1,14 @@
 ﻿---
-title: Slide 13 - What Is a Vector?
+title: Slide 10 - What Is a Vector?
 tags:
   - magpai
   - session1
   - teleprompter
-slide: 13
+slide: 10
 ---
 
-# Slide 13 - What Is a Vector?
+# Slide 10 - What Is a Vector?
 
-## Slide Intent
-
-Define vector before relying on vector language in the row lookup explanation.
 
 ## Say This
 
@@ -30,18 +27,16 @@ For the word `sales`, the demo uses this lookup path:
 
 The important point is that the vector is not the token ID. The token ID is only the row number. The vector is the row content.
 
+## Transition
+
+Now that we know what a vector is, we will use the Embedding Lab Demo to make vector direction visible before we zoom into Token ID 3.
+
+
 ## Key Points
 
 - A vector is a list of numbers.
 - A token ID is an index.
 - The embedding table row is the vector.
 - The vector is what moves forward into the neural network.
-
-## Transition
-
-Now we can zoom into Token ID 3 and show exactly how it becomes the `sales` vector.
-
-
-
 
 

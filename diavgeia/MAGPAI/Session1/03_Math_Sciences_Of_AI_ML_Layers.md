@@ -39,9 +39,32 @@ ethics and risk science
 
 That matters because AI is not one thing. It is a stack of ideas from mathematics, computer science, engineering, language, and human systems.
 
-For Session 1, the most important foundations are linear algebra, probability, information theory, linguistics, and software systems.
+For today's presentation, the most important foundations are linear algebra, probability, information theory, linguistics, and software systems.
 
 Those are the tools that let us explain how a sentence becomes tokens, token IDs, vectors, tensors, and eventually model input.
+
+Layer 5: it is the equivalent of at least a college minor in Math.
+Look at layer 14: in the graduate school that I attended, 4 of these were distinct masters programs.
+
+## My PHD speal
+
+You do not need a PhD to use the self-driving feature of a Tesla.
+
+But if you want to implement that feature from the ground up, you need to understand the entire stack: sensors, data, perception models, neural networks, training, safety, control systems, and real-world deployment.
+
+AI is the same. We do not need a PhD to use today’s AI tools. But understanding how the stack really works — and how to build, improve, and extend it — is a much deeper journey.
+
+I want to be very clear: this presentation is not a vendor pitch and it is not a collection of copied diagrams.
+
+This is my attempt to explain the AI stack from first principles, based on my own study, implementation work, and doctoral-level research path in AI.
+
+The goal is not to pretend that we all need to become AI researchers. The goal is to understand enough of the stack so we can use AI intelligently, challenge it correctly, and build on top of it responsibly.
+
+
+## Transition
+
+Now we can narrow the scope: from a sentence to tokens to vectors.
+
 
 ## Key Points
 
@@ -49,7 +72,3 @@ Those are the tools that let us explain how a sentence becomes tokens, token IDs
 - Session 1 sits in the language layer, but depends on the lower layers.
 - Tokens and vectors are not magic terms; they are engineering objects backed by math.
 - This slide prepares the audience for the technical vocabulary in the rest of the session.
-
-## Transition
-
-Now we can narrow the scope to Session 1: from a sentence to tokens to vectors.

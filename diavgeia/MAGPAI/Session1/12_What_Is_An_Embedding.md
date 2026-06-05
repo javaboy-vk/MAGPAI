@@ -1,25 +1,25 @@
 ﻿---
-title: Slide 10 - What Is an Embedding?
+title: Slide 12 - What Is an Embedding?
 tags:
   - magpai
   - session1
   - teleprompter
-slide: 10
+slide: 12
 ---
 
-# Slide 10 - What Is an Embedding?
+# Slide 12 - What Is an Embedding?
 
-## Slide Intent
 
-Introduce the embedding table before using embedding lookup as an operation.
 
 ## Say This
+
+Now we can name the structure behind that vector lookup.
 
 An **embedding** is a learned numeric representation of a token.
 
 The model stores these representations in an **embedding table**. You can think of that table as a matrix where each row belongs to one token ID.
 
-A tiny teaching table can look like this:
+A tiny table can look like this:
 
 ```text
 ID   token      vector row
@@ -55,6 +55,16 @@ The vector is simiply:
 - initialized randomly
 - adjusted during training millions or billions of times
 
+A token vector is not stored as plain text. It becomes a list of numbers. In real AI systems, these numbers are floating-point values. They may look like they have many decimals, but internally the system usually stores them in formats like 32-bit (7 decimals), or 16-bit (3 decimals). The exact number of decimals is less important than the fact that the model learns by changing these numbers.
+
+We see that AI is powered by floating-point math.
+CPUs can do that math, but GPUs can do it massively in parallel.
+And modern NVIDIA GPUs go even further with specialized hardware called Tensor Cores, designed to accelerate the mixed-precision matrix operations used in AI.
+
+This is one of the main reasons NVIDIA became so central to the AI revolution.
+
+
+
 ## Key Points
 
 - An embedding is a learned numeric representation.
@@ -64,7 +74,7 @@ The vector is simiply:
 
 ## Transition
 
-Before we explain lookup, we need one more idea: training turns those rows into geometric coordinates of meaning.
+Now we can explain how training makes those rows become geometric coordinates of meaning.
 
 
 

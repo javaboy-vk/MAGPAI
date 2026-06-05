@@ -271,5 +271,6 @@ Answer
 
 > "The LLM is the application. The ANN is the engine inside it."
 
-That distinction is why the industry settled on **LLM** rather than **Large ANN**, even though under the covers a modern LLM is fundamentally a very large neural network.
+That distinction is why the industry settled on **LLM** rather than **Large ANN**, even though 
+under the hood a modern LLM is fundamentally a very large neural network.
 

@@ -20,6 +20,12 @@ Position MAGPAI Session 1 inside the broader AI/ML learning stack.
 ## Say This
 
 This is the broader AI/ML stack we are navigating.
+I narrow it down to these 16 layers.
+
+1-4: core AI literacy
+5-8: Modern Deep Learning
+9 - 12: Enterprise  AI systems
+13 - 16: Advanced / Strategic AI
 
 MAGPAI Session 1 starts at level 6:
 
@@ -52,6 +58,8 @@ The lower levels still matter. Computing, math, data, machine learning, and deep
 
 ## Transition
 
-Now I want to show the same stack from another angle: the math and sciences underneath each layer.
+Let's look at these layers from a scientific perspective, what is underneath each layer.
+
+AI is an Accumulation of many different sciences, technologies, theories, and somoe very intriquing research and Eureka moments.
 
 

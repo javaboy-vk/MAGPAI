@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAGPAI Agent Demo v1.1</title>
+  <style>
+    :root {
+      --bg: #eef3f8;
+      --panel: #ffffff;
+      --ink: #132238;
+      --muted: #5e6c7b;
+      --blue: #1f6feb;
+      --blue2: #dbeafe;
+      --green: #1f9d55;
+      --green2: #dcfce7;
+      --amber: #b7791f;
+      --amber2: #fff7d6;
+      --line: #b7c7d9;
+      --shadow: 0 12px 30px rgba(19, 34, 56, 0.12);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(135deg, #edf4fb 0%, #f8fbff 55%, #e8f1fb 100%);
+      color: var(--ink);
+    }
+
+    .page {
+      max-width: 1420px;
+      margin: 0 auto;
+      padding: 22px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo {
+      width: 58px;
+      height: 58px;
+      border-radius: 16px;
+      background: linear-gradient(145deg, #1f6feb, #0b3d91);
+      color: white;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 19px;
+      box-shadow: var(--shadow);
+      letter-spacing: 0.5px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 30px;
+      line-height: 1.05;
+    }
+
+    .subtitle {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .version {
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.8);
+      font-weight: 700;
+      color: #284764;
+    }
+
+    .header-status {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .server-status {
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-weight: 900;
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+
+    .server-status.running {
+      background: var(--green2);
+      border-color: #86d4a4;
+      color: #126c3a;
+    }
+
+    .server-status.stopped {
+      background: #fee2e2;
+      border-color: #fecaca;
+      color: #b91c1c;
+    }
+
+    .server-status.restarting {
+      background: var(--amber2);
+      border-color: #f5d47a;
+      color: var(--amber);
+    }
+
+    .control-bar {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 12px;
+      background: var(--panel);
+      padding: 14px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 18px;
+      border: 1px solid #d9e4ef;
+    }
+
+    input {
+      width: 100%;
+      border: 1px solid #c9d6e2;
+      border-radius: 14px;
+      padding: 15px 16px;
+      font-size: 17px;
+      color: var(--ink);
+      outline: none;
+      background: #fbfdff;
+    }
+
+    button {
+      border: 0;
+      border-radius: 14px;
+      padding: 13px 18px;
+      font-weight: 800;
+      font-size: 15px;
+      cursor: pointer;
+      transition: transform 0.1s ease, opacity 0.2s ease;
+    }
+
+    button:active { transform: scale(0.98); }
+    button:disabled { opacity: 0.55; cursor: not-allowed; }
+
+    .primary { background: var(--blue); color: white; }
+    .secondary { background: #edf2f7; color: #24364b; border: 1px solid #cbd8e6; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.08fr 1.2fr 1fr;
+      gap: 18px;
+    }
+
+    .panel {
+      background: rgba(255,255,255,0.93);
+      border: 1px solid #d9e4ef;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 16px;
+      min-height: 158px;
+    }
+
+    .panel h2 {
+      margin: 0 0 12px;
+      font-size: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .badge {
+      font-size: 12px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: #edf2f7;
+      color: #4a5d70;
+      white-space: nowrap;
+    }
+
+    .badge.active { background: var(--blue2); color: #0b4db2; }
+    .badge.done { background: var(--green2); color: #126c3a; }
+
+    .agent-core {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .hero-agent {
+      text-align: center;
+      padding: 18px;
+      border-radius: 18px;
+      border: 2px solid #bcd2e8;
+      background: linear-gradient(180deg, #ffffff, #f3f8ff);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pulse-ring {
+      width: 98px;
+      height: 98px;
+      border-radius: 50%;
+      margin: 0 auto 10px;
+      background: radial-gradient(circle, #1f6feb 0 35%, #93c5fd 36% 58%, #dbeafe 59% 100%);
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 900;
+      font-size: 20px;
+    }
+
+    .pulse-ring.running { animation: pulse 1.3s infinite; }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(31,111,235,0.34); }
+      70% { box-shadow: 0 0 0 18px rgba(31,111,235,0); }
+      100% { box-shadow: 0 0 0 0 rgba(31,111,235,0); }
+    }
+
+    .agent-state {
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .agent-caption {
+      margin-top: 4px;
+      color: var(--muted);
+      min-height: 21px;
+    }
+
+    .goal-box {
+      padding: 13px;
+      border-radius: 14px;
+      background: #f8fbff;
+      border: 1px solid #d7e5f2;
+      line-height: 1.35;
+      min-height: 68px;
+    }
+
+    .memory-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .memory-item {
+      padding: 10px;
+      border-radius: 12px;
+      background: #f8fbff;
+      border: 1px solid #d7e5f2;
+    }
+
+    .memory-label {
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    .memory-value {
+      font-weight: 800;
+      min-height: 19px;
+    }
+
+    .plan-list {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .plan-step {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      align-items: center;
+      gap: 8px;
+      padding: 10px;
+      border-radius: 12px;
+      background: #f7fafc;
+      border: 1px solid #d7e2ee;
+      color: #38516d;
+      transition: all 0.25s ease;
+    }
+
+    .plan-step.active {
+      border-color: #78aef8;
+      background: var(--blue2);
+      color: #0b4db2;
+      transform: translateX(4px);
+    }
+
+    .plan-step.done {
+      border-color: #86d4a4;
+      background: var(--green2);
+      color: #126c3a;
+    }
+
+    .check {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 2px solid #b5c6d8;
+      display: grid;
+      place-items: center;
+      font-size: 13px;
+      font-weight: 900;
+      background: white;
+    }
+
+    .plan-step.done .check { border-color: var(--green); color: var(--green); }
+    .plan-step.active .check { border-color: var(--blue); color: var(--blue); }
+
+    .tools {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .tool {
+      padding: 12px 10px;
+      border-radius: 14px;
+      border: 1px solid #d5e0ed;
+      background: #f8fbff;
+      text-align: center;
+      min-height: 92px;
+      transition: all 0.25s ease;
+    }
+
+    .tool .icon { font-size: 28px; margin-bottom: 5px; }
+    .tool .name { font-weight: 800; font-size: 13px; }
+    .tool .status { font-size: 12px; color: var(--muted); margin-top: 4px; }
+    .tool.active { border-color: #78aef8; background: var(--blue2); transform: translateY(-4px); }
+    .tool.done { border-color: #86d4a4; background: var(--green2); }
+
+    pre {
+      margin: 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 14px;
+      line-height: 1.4;
+      background: #0f172a;
+      color: #dbeafe;
+      border-radius: 14px;
+      padding: 14px;
+      min-height: 146px;
+      overflow: auto;
+    }
+
+    .observation {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .metric {
+      padding: 14px;
+      border-radius: 14px;
+      background: #f8fbff;
+      border: 1px solid #d7e5f2;
+      text-align: center;
+    }
+
+    .metric .label { color: var(--muted); font-size: 13px; }
+    .metric .value { font-size: 27px; font-weight: 900; margin-top: 4px; }
+
+    .reasoning-line {
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: #f8fbff;
+      border: 1px solid #d7e5f2;
+      margin-bottom: 8px;
+      font-weight: 700;
+      min-height: 42px;
+    }
+
+    .answer-box {
+      padding: 16px;
+      border-radius: 16px;
+      border: 2px solid #bcd2e8;
+      background: #f8fbff;
+      font-size: 19px;
+      font-weight: 800;
+      line-height: 1.35;
+      min-height: 94px;
+    }
+
+    .answer-box.done {
+      border-color: #86d4a4;
+      background: var(--green2);
+      color: #126c3a;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .flow-node {
+      padding: 10px 6px;
+      text-align: center;
+      border-radius: 12px;
+      border: 1px solid #d3deeb;
+      background: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      color: #445a70;
+    }
+
+    .flow-node.active { background: var(--blue2); color: #0b4db2; border-color: #78aef8; }
+    .flow-node.done { background: var(--green2); color: #126c3a; border-color: #86d4a4; }
+
+
+    .email-card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #ffffff;
+      overflow: hidden;
+      min-height: 190px;
+    }
+
+    .email-header {
+      background: linear-gradient(90deg, #132238 0%, #1f6feb 100%);
+      color: #ffffff;
+      padding: 14px 16px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .email-header span { font-size: 12px; font-weight: 600; opacity: 0.9; }
+
+    .email-body { padding: 14px 16px; font-size: 14px; line-height: 1.45; }
+
+    .email-line { margin: 6px 0; }
+
+    .email-status {
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: #eef3f8;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .email-status.done { background: var(--green2); color: var(--green); }
+    .email-status.error { background: #fee2e2; color: #b91c1c; }
+
+    footer {
+      margin-top: 16px;
+      color: #63758a;
+      font-size: 12px;
+      text-align: right;
+    }
+
+    @media (max-width: 1050px) {
+      .grid { grid-template-columns: 1fr; }
+      .control-bar { grid-template-columns: 1fr; }
+      .flow { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <div class="logo">MAG</div>
+        <div>
+          <h1>MAGPAI Agent Demo</h1>
+          <div class="subtitle">Visualizing Agentic AI: Goal → Plan → Tool → Action → Observation → Reasoning → Answer</div>
+        </div>
+      </div>
+      <div class="header-status">
+        <div class="version">MAGPAI Agent Demo v1.1</div>
+        <div id="emailServerStatus" class="server-status stopped">MAGPAI Email Server Stopped</div>
+      </div>
+    </header>
+
+    <div class="control-bar">
+      <input id="question" value="Are MAG sales up in Chicago?" aria-label="Question" />
+      <button class="primary" id="runBtn">Run Agent</button>
+      <button class="secondary" id="resetBtn">Reset</button>
+    </div>
+
+    <div class="grid">
+      <div class="agent-core">
+        <section class="panel hero-agent">
+          <div id="pulse" class="pulse-ring">AI</div>
+          <div id="agentState" class="agent-state">Ready</div>
+          <div id="agentCaption" class="agent-caption">The agent is waiting for a business goal.</div>
+        </section>
+
+        <section class="panel">
+          <h2>Goal <span id="goalBadge" class="badge">waiting</span></h2>
+          <div id="goalText" class="goal-box">No goal extracted yet.</div>
+        </section>
+
+        <section class="panel">
+          <h2>Working Memory <span id="memoryBadge" class="badge">empty</span></h2>
+          <div class="memory-grid">
+            <div class="memory-item"><div class="memory-label">City</div><div id="city" class="memory-value">—</div></div>
+            <div class="memory-item"><div class="memory-label">Metric</div><div id="metric" class="memory-value">—</div></div>
+            <div class="memory-item"><div class="memory-label">Current Period</div><div id="currentPeriod" class="memory-value">—</div></div>
+            <div class="memory-item"><div class="memory-label">Comparison</div><div id="comparison" class="memory-value">—</div></div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Email Tool <span id="emailBadge" class="badge">waiting</span></h2>
+          <div class="email-card">
+            <div class="email-header">MAGPAI <span>Mark Anthony Group AI Agent Platform</span></div>
+            <div class="email-body">
+              <div class="email-line"><strong>To:</strong> vasilis.katsoulis@mail.com</div>
+              <div class="email-line"><strong>Subject:</strong> MAGPAI Agent Report: Chicago Sales Are Up</div>
+              <div class="email-line"><strong>Summary:</strong> Waiting for the agent to complete the business analysis.</div>
+              <div id="emailPreview" class="email-line"><strong>Message:</strong> Not generated yet.</div>
+              <div id="emailStatus" class="email-status">Email has not been sent yet.</div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="agent-core">
+        <section class="panel">
+          <h2>Agent Plan <span id="planBadge" class="badge">not started</span></h2>
+          <div class="plan-list">
+            <div class="plan-step" id="step0"><div class="check">1</div><div>Understand the question</div></div>
+            <div class="plan-step" id="step1"><div class="check">2</div><div>Extract city, metric, and time comparison</div></div>
+            <div class="plan-step" id="step2"><div class="check">3</div><div>Select the sales database tool</div></div>
+            <div class="plan-step" id="step3"><div class="check">4</div><div>Query current and previous sales</div></div>
+            <div class="plan-step" id="step4"><div class="check">5</div><div>Calculate change and growth rate</div></div>
+            <div class="plan-step" id="step5"><div class="check">6</div><div>Generate final business answer</div></div>
+            <div class="plan-step" id="step6"><div class="check">7</div><div>Send branded MAGPAI email</div></div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Tools <span id="toolBadge" class="badge">available</span></h2>
+          <div class="tools">
+            <div id="databaseTool" class="tool"><div class="icon">🗄️</div><div class="name">Sales Database</div><div class="status">available</div></div>
+            <div id="calendarTool" class="tool"><div class="icon">📅</div><div class="name">Calendar</div><div class="status">not needed</div></div>
+            <div id="emailTool" class="tool"><div class="icon">✉️</div><div class="name">Email</div><div class="status">available</div></div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Agent Action <span id="actionBadge" class="badge">waiting</span></h2>
+          <pre id="sqlBox">-- No tool action yet.</pre>
+        </section>
+      </div>
+
+      <div class="agent-core">
+        <section class="panel">
+          <h2>Observation <span id="obsBadge" class="badge">waiting</span></h2>
+          <div class="observation">
+            <div class="metric"><div class="label">Previous Month</div><div id="prevSales" class="value">—</div></div>
+            <div class="metric"><div class="label">Current Month</div><div id="currSales" class="value">—</div></div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Reasoning <span id="reasonBadge" class="badge">waiting</span></h2>
+          <div id="reason1" class="reasoning-line">Waiting for data.</div>
+          <div id="reason2" class="reasoning-line">Waiting for comparison.</div>
+          <div id="reason3" class="reasoning-line">Waiting for growth calculation.</div>
+        </section>
+
+        <section class="panel">
+          <h2>Final Answer <span id="answerBadge" class="badge">waiting</span></h2>
+          <div id="answer" class="answer-box">MAGPAI has not answered yet.</div>
+        </section>
+      </div>
+
+    </div>
+
+    <div class="flow">
+      <div id="flow0" class="flow-node">Question</div>
+      <div id="flow1" class="flow-node">Goal</div>
+      <div id="flow2" class="flow-node">Plan</div>
+      <div id="flow3" class="flow-node">Tool</div>
+      <div id="flow4" class="flow-node">Action</div>
+      <div id="flow5" class="flow-node">Observation</div>
+      <div id="flow6" class="flow-node">Answer</div>
+      <div id="flow7" class="flow-node">Email</div>
+    </div>
+
+    <footer>Artifact: MAGPAI Agent Demo – Visual Agentic AI Page – v1.1</footer>
+  </div>
+
+  <script>
+    const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+    const $ = (id) => document.getElementById(id);
+
+    const data = {
+      city: "Chicago",
+      metric: "Sales",
+      previousPeriod: "May",
+      currentPeriod: "June",
+      previousSales: 10.2,
+      currentSales: 11.4
+    };
+
+    function setBadge(id, text, state) {
+      const el = $(id);
+      el.textContent = text;
+      el.className = "badge" + (state ? " " + state : "");
+    }
+
+    function setStep(index, state) {
+      const el = $("step" + index);
+      el.className = "plan-step " + state;
+      const check = el.querySelector(".check");
+      check.textContent = state === "done" ? "✓" : index + 1;
+    }
+
+    function setFlow(index, state) {
+      $("flow" + index).className = "flow-node " + state;
+    }
+
+    function setEmailServerStatus(text, state) {
+      const status = $("emailServerStatus");
+      status.textContent = text;
+      status.className = "server-status " + state;
+    }
+
+    async function restartEmailServer() {
+      setEmailServerStatus("MAGPAI Email Server restarting", "restarting");
+      try {
+        await fetch("http://127.0.0.1:8088/api/restart", {
+          method: "POST",
+          cache: "no-store"
+        });
+      } catch {
+        setEmailServerStatus("MAGPAI Email Server Stopped", "stopped");
+        return;
+      }
+
+      for (let attempt = 0; attempt < 12; attempt++) {
+        await wait(700);
+        await refreshEmailServerStatus();
+        if ($("emailServerStatus").classList.contains("running")) {
+          return;
+        }
+      }
+    }
+
+    async function reset(restartServer = false) {
+      $("pulse").classList.remove("running");
+      $("agentState").textContent = "Ready";
+      $("agentCaption").textContent = "The agent is waiting for a business goal.";
+      $("goalText").textContent = "No goal extracted yet.";
+      setBadge("goalBadge", "waiting", "");
+      setBadge("memoryBadge", "empty", "");
+      setBadge("planBadge", "not started", "");
+      setBadge("toolBadge", "available", "");
+      setBadge("actionBadge", "waiting", "");
+      setBadge("obsBadge", "waiting", "");
+      setBadge("reasonBadge", "waiting", "");
+      setBadge("answerBadge", "waiting", "");
+      setBadge("emailBadge", "waiting", "");
+      ["city", "metric", "currentPeriod", "comparison"].forEach(id => $(id).textContent = "—");
+      $("sqlBox").textContent = "-- No tool action yet.";
+      $("prevSales").textContent = "—";
+      $("currSales").textContent = "—";
+      $("reason1").textContent = "Waiting for data.";
+      $("reason2").textContent = "Waiting for comparison.";
+      $("reason3").textContent = "Waiting for growth calculation.";
+      $("answer").textContent = "MAGPAI has not answered yet.";
+      $("answer").className = "answer-box";
+      $("emailPreview").innerHTML = "<strong>Message:</strong> Not generated yet.";
+      $("emailStatus").textContent = "Email has not been sent yet.";
+      $("emailStatus").className = "email-status";
+      ["databaseTool", "calendarTool", "emailTool"].forEach(id => $(id).className = "tool");
+      for (let i = 0; i < 7; i++) setStep(i, "");
+      for (let i = 0; i < 8; i++) setFlow(i, "");
+      $("runBtn").disabled = false;
+      if (restartServer) {
+        await restartEmailServer();
+      } else {
+        refreshEmailServerStatus();
+      }
+    }
+
+
+    async function sendMagpaiEmail() {
+      const diff = data.currentSales - data.previousSales;
+      const growth = diff / data.previousSales * 100;
+      const payload = {
+        to: "vasilis.katsoulis@mail.com",
+        subject: "MAGPAI Agent Report: Chicago Sales Are Up",
+        city: data.city,
+        previousPeriod: data.previousPeriod,
+        currentPeriod: data.currentPeriod,
+        previousSales: data.previousSales,
+        currentSales: data.currentSales,
+        difference: diff,
+        growth: growth
+      };
+
+      const response = await fetch("http://127.0.0.1:8088/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      const result = await response.json();
+      if (!response.ok || !result.ok) {
+        throw new Error(result.error || "Email send failed.");
+      }
+      return result;
+    }
+
+    async function refreshEmailServerStatus() {
+      const status = $("emailServerStatus");
+      try {
+        const response = await fetch("http://127.0.0.1:8088/api/health", {
+          cache: "no-store"
+        });
+        const result = await response.json();
+        if (response.ok && result.ok) {
+          setEmailServerStatus("MAGPAI Email Server running", "running");
+          return;
+        }
+        throw new Error("Health check failed");
+      } catch {
+        setEmailServerStatus("MAGPAI Email Server Stopped", "stopped");
+      }
+    }
+
+    async function runAgent() {
+      reset();
+      $("runBtn").disabled = true;
+      $("pulse").classList.add("running");
+      $("agentState").textContent = "Running";
+      $("agentCaption").textContent = "MAGPAI is converting a question into an agent workflow.";
+      setFlow(0, "active");
+      setStep(0, "active");
+      await wait(950);
+
+      setStep(0, "done");
+      setFlow(0, "done");
+      setFlow(1, "active");
+      setBadge("goalBadge", "identified", "done");
+      $("goalText").innerHTML = "Determine whether <strong>MAG sales</strong> are up in <strong>Chicago</strong> compared with the previous month.";
+      $("agentCaption").textContent = "Goal extracted from the business question.";
+      await wait(1100);
+
+      setStep(1, "active");
+      setBadge("memoryBadge", "updating", "active");
+      $("city").textContent = data.city;
+      await wait(420);
+      $("metric").textContent = data.metric;
+      await wait(420);
+      $("currentPeriod").textContent = data.currentPeriod;
+      await wait(420);
+      $("comparison").textContent = "Previous Month";
+      setBadge("memoryBadge", "ready", "done");
+      setStep(1, "done");
+      await wait(650);
+
+      setFlow(1, "done");
+      setFlow(2, "active");
+      setBadge("planBadge", "created", "done");
+      $("agentCaption").textContent = "MAGPAI has a plan before it answers.";
+      await wait(900);
+
+      setFlow(2, "done");
+      setFlow(3, "active");
+      setStep(2, "active");
+      setBadge("toolBadge", "selecting", "active");
+      $("databaseTool").className = "tool active";
+      $("databaseTool").querySelector(".status").textContent = "selected";
+      $("agentCaption").textContent = "MAGPAI chooses the correct tool for the task.";
+      await wait(1000);
+
+      setStep(2, "done");
+      $("databaseTool").className = "tool done";
+      setBadge("toolBadge", "database selected", "done");
+      setFlow(3, "done");
+      setFlow(4, "active");
+      setStep(3, "active");
+      setBadge("actionBadge", "querying", "active");
+      $("sqlBox").textContent = "SELECT period, sales_millions\nFROM mag_sales_summary\nWHERE city = 'Chicago'\n  AND period IN ('May', 'June')\nORDER BY period;";
+      $("agentCaption").textContent = "Action: the agent calls the sales database.";
+      await wait(1300);
+
+      setStep(3, "done");
+      setBadge("actionBadge", "completed", "done");
+      setFlow(4, "done");
+      setFlow(5, "active");
+      setBadge("obsBadge", "data received", "done");
+      $("prevSales").textContent = "$" + data.previousSales.toFixed(1) + "M";
+      await wait(480);
+      $("currSales").textContent = "$" + data.currentSales.toFixed(1) + "M";
+      $("agentCaption").textContent = "Observation: the tool returned business data.";
+      await wait(900);
+
+      setStep(4, "active");
+      setBadge("reasonBadge", "calculating", "active");
+      const diff = data.currentSales - data.previousSales;
+      const growth = diff / data.previousSales * 100;
+      $("reason1").textContent = `${data.currentPeriod} sales: $${data.currentSales.toFixed(1)}M`;
+      await wait(520);
+      $("reason2").textContent = `${data.previousPeriod} sales: $${data.previousSales.toFixed(1)}M`;
+      await wait(520);
+      $("reason3").textContent = `Change: +$${diff.toFixed(1)}M, Growth: +${growth.toFixed(1)}%`;
+      setStep(4, "done");
+      setBadge("reasonBadge", "completed", "done");
+      await wait(850);
+
+      setFlow(5, "done");
+      setFlow(6, "active");
+      setStep(5, "active");
+      setBadge("answerBadge", "generating", "active");
+      $("agentCaption").textContent = "MAGPAI now produces the final answer based on tool results.";
+      await wait(900);
+
+      $("answer").innerHTML = "Yes. <strong>Chicago MAG sales are up</strong>. Sales increased from <strong>$10.2M</strong> in May to <strong>$11.4M</strong> in June, a gain of <strong>+$1.2M</strong> or <strong>+11.8%</strong>.";
+      $("answer").className = "answer-box done";
+      setBadge("answerBadge", "complete", "done");
+      setStep(5, "done");
+      setFlow(6, "done");
+      await wait(700);
+
+      setFlow(7, "active");
+      setStep(6, "active");
+      setBadge("emailBadge", "sending", "active");
+      setBadge("toolBadge", "email selected", "active");
+      $("emailTool").className = "tool active";
+      $("emailTool").querySelector(".status").textContent = "sending";
+      $("emailPreview").innerHTML = "<strong>Message:</strong> Chicago MAG sales increased from $10.2M in May to $11.4M in June, a gain of +$1.2M or +11.8%.";
+      $("emailStatus").textContent = "Connecting to email service and sending message...";
+      $("agentCaption").textContent = "MAGPAI uses the Email Tool to send the business result.";
+
+      try {
+        const result = await sendMagpaiEmail();
+        $("emailStatus").textContent = "Email sent successfully to " + result.to + ".";
+        $("emailStatus").className = "email-status done";
+        $("emailTool").className = "tool done";
+        $("emailTool").querySelector(".status").textContent = "sent";
+        setBadge("emailBadge", "sent", "done");
+        setStep(6, "done");
+        setFlow(7, "done");
+        setBadge("toolBadge", "tools completed", "done");
+        $("agentState").textContent = "Completed";
+        $("agentCaption").textContent = "The agent answered the question and completed a real business action by sending email.";
+      } catch (error) {
+        $("emailStatus").textContent = "Email failed: " + error.message;
+        $("emailStatus").className = "email-status error";
+        $("emailTool").querySelector(".status").textContent = "failed";
+        setBadge("emailBadge", "failed", "");
+        $("agentState").textContent = "Completed with Email Error";
+        $("agentCaption").textContent = "The analysis completed, but the Email Tool needs SMTP configuration.";
+      }
+
+      $("pulse").classList.remove("running");
+      $("runBtn").disabled = false;
+    }
+
+    $("runBtn").addEventListener("click", runAgent);
+    $("resetBtn").addEventListener("click", () => {
+      reset(true);
+    });
+    reset();
+    refreshEmailServerStatus();
+    setInterval(refreshEmailServerStatus, 5000);
+  </script>
+</body>
+</html>

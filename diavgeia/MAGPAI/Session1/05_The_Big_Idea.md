@@ -36,7 +36,25 @@ That is why this pipeline matters:
 Question -> Tokens -> Token IDs -> Vectors -> Neural Network -> Structured Request -> Data Tool -> Chart
 ```
 
+A child may recognize a cat after seeing a few cats because the human brain already has powerful built-in visual intelligence.
+
+How many cat pictures does a model need before it understands what a cat is?
+The answer is: it depends on what the model already knows.
+If it has already been trained on the visual world, it may need only a few examples.
+
+But if we build it from the ground up, it may need thousands or millions of images, because it is not just learning “cat.” 
+
+It is first learning how to see.
+
+## Transition
+
+Now I will use one simple sentence and carry it through the whole pipeline.
+
 Each step moves the question away from human-readable text and closer to something the system can execute against trusted data.
+
+
+
+
 
 ## Key Points
 
@@ -45,9 +63,7 @@ Each step moves the question away from human-readable text and closer to somethi
 - Tokenization and embeddings bridge language and computation.
 - The chart comes from a data tool, not from model memory.
 
-## Transition
 
-Now I will use one simple sentence and carry it through the whole pipeline.
 
 
 

@@ -1,17 +1,13 @@
 ﻿---
-title: Slide 14 - How Token ID 3 Becomes a Vector
+title: Slide 11 - How Token ID 3 Becomes a Vector
 tags:
   - magpai
   - session1
   - teleprompter
-slide: 14
+slide: 11
 ---
 
-# Slide 14 - How Token ID 3 Becomes a Vector
-
-## Slide Intent
-
-Make the row lookup concrete.
+# Slide 11 - How Token ID 3 Becomes a Vector
 
 ## Say This
 
@@ -33,6 +29,12 @@ That row might look like this in the demo:
 
 The integer 3 does not contain the meaning of sales. It points to a learned row in the embedding matrix.
 
+## Transition
+
+Now that we have seen a token ID become a vector, we can name the mechanism that stores those rows: the embedding table.
+
+
+
 ## Key Points
 
 - `E` means embedding matrix.
@@ -40,9 +42,6 @@ The integer 3 does not contain the meaning of sales. It points to a learned row 
 - The row is the vector.
 - The learned row is the useful representation.
 
-## Transition
-
-Now that the token ID has become a vector, we can explain what the neural network actually receives.
 
 
 

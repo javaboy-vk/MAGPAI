@@ -9,10 +9,6 @@ slide: 09
 
 # Slide 09 - Tokenizer Step 2 - Token IDs
 
-## Slide Intent
-
-Explain vocabulary lookup and make clear that token IDs are labels.
-
 ## Say This
 
 After tokenization, each token is looked up in a vocabulary.
@@ -46,15 +42,24 @@ Important point: the integer ID is not the meaning. It is an index.
 
 Token ID 3 does not mathematically mean sales. It points to where the model can find the representation for sales.
 
+
+## Transition
+
+In the next slides we will introduce the concept of a vector.
+
+
+
+
+
+
+
 ## Key Points
 
 - Tokens become token IDs through vocabulary lookup.
 - IDs are stable labels.
 - IDs are not meaningful quantities by themselves.
 
-## Transition
 
-Before using vectors, we need to define the embedding table that stores them.
 
 
 

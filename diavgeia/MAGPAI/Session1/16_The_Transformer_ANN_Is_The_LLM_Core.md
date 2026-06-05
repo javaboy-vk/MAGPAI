@@ -9,9 +9,6 @@ slide: 16
 
 # Slide 16 - The Transformer ANN Is the LLM Core
 
-## Slide Intent
-
-Explain that a modern LLM is a very large neural network, usually built with the Transformer architecture.
 
 ## Say This
 
@@ -19,7 +16,8 @@ In modern LLMs, the ANN and the LLM are not two separate systems.
 
 The LLM **is** an enormous artificial neural network.
 
-More specifically, most modern language models use a neural-network architecture called a **Transformer**.
+More specifically, most modern language models use a neural-network architecture 
+called a **Transformer**.
 
 Inside that Transformer are neural-network components:
 

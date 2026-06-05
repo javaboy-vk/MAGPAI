@@ -9,10 +9,6 @@ slide: 07
 
 # Slide 07 - Tokenizer Step 1 - Tokens
 
-## Slide Intent
-
-Explain tokenization as breaking text into known pieces.
-
 ## Say This
 
 The first tokenizer step is to break the sentence into tokens.
@@ -31,11 +27,17 @@ becomes this:
 ["are", "MAG", "sales", "up", "in", "chicago", "?"]
 ```
 
-In the PPTX we keep `MAG` capitalized because it is the company name in the input text. The demo still treats it as one token.
-
 This is not how every production tokenizer works. Real LLM tokenizers may split text into subwords, punctuation, spaces, casing variants, and special tokens.
 
 But for learning, word-level tokens make the concept visible.
+
+
+## Transition
+
+First let's define the words token and tokenizer.
+
+
+
 
 ## Key Points
 
@@ -45,9 +47,7 @@ But for learning, word-level tokens make the concept visible.
 - The question mark is also a token in this teaching demo.
 - The simplified version teaches the boundary clearly.
 
-## Transition
 
-Before we map tokens to IDs, we will define the words token and tokenizer.
 
 
 

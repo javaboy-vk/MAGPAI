@@ -145,7 +145,7 @@
 
     .status {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(7, 1fr);
       gap: 10px;
       margin-top: 12px;
     }
@@ -169,7 +169,7 @@
       font-size: 19px;
     }
 
-    #predictionValue {
+    #trainingPredictionValue {
       color: var(--green);
       font-weight: 900;
     }
@@ -180,6 +180,60 @@
       gap: 4px;
       align-items: center;
       font-size: 12px;
+    }
+
+    .embedding-evolution {
+      margin-top: 12px;
+      border: 1px solid #d9e4ef;
+      border-radius: 12px;
+      background: #fbfdff;
+      overflow: hidden;
+    }
+
+    .embedding-evolution h3 {
+      margin: 0;
+      padding: 8px 10px;
+      color: var(--blue);
+      font-size: 14px;
+      border-bottom: 1px solid #d9e4ef;
+      background: #f4f8fd;
+    }
+
+    .embedding-table {
+      display: grid;
+      grid-template-columns: 64px 118px repeat(6, minmax(52px, 1fr));
+      gap: 0;
+      font-family: Consolas, monospace;
+      font-size: 11px;
+    }
+
+    .embedding-cell {
+      padding: 6px 5px;
+      border-right: 1px solid #e3ebf4;
+      border-bottom: 1px solid #e3ebf4;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .embedding-cell:nth-child(8n) {
+      border-right: none;
+    }
+
+    .embedding-head {
+      background: #edf4fc;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .embedding-step {
+      color: var(--blue);
+      font-weight: 800;
+    }
+
+    .embedding-current {
+      background: #eef8f2;
+      color: var(--green);
+      font-weight: 900;
     }
 
     .cell, .token-cell, .dim-cell {
@@ -204,11 +258,11 @@
     .flow {
       display: grid;
       grid-template-columns:
-        minmax(430px, 1.15fr)
-        44px
-        minmax(560px, 1.25fr)
-        44px
-        minmax(320px, 0.85fr);
+        minmax(340px, 0.82fr)
+        28px
+        minmax(500px, 1.16fr)
+        28px
+        minmax(540px, 1.02fr);
       gap: 8px;
       align-items: center;
       text-align: center;
@@ -229,7 +283,8 @@
     .sigmoid-box {
       justify-self: end;
       width: 100%;
-      max-width: 360px;
+      min-width: 540px;
+      max-width: none;
     }
 
     .arrow {
@@ -254,13 +309,13 @@
       margin-top: 8px;
       text-align: left;
       font-family: Consolas, monospace;
-      font-size: 12px;
-      line-height: 1.45;
+      font-size: 13px;
+      line-height: 1.5;
       color: var(--muted);
     }
 
     #linearCalculation {
-      white-space: nowrap;
+      white-space: normal;
       font-size: 11px;
     }
 
@@ -270,7 +325,34 @@
 
     #sigmoidCalculation {
       white-space: nowrap;
-      font-size: 12px;
+      font-size: 14px;
+    }
+
+    .sigmoid-formulas {
+      display: grid;
+      grid-template-columns: auto auto;
+      align-items: center;
+      justify-content: center;
+      column-gap: 18px;
+    }
+
+    .sigmoid-formulas .e-note {
+      grid-column: 1 / -1;
+      justify-self: start;
+      margin-left: 8px;
+    }
+
+    .fixed-question-calc {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid #d9e4ef;
+      white-space: nowrap;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .fixed-question-calc strong {
+      color: var(--ink);
     }
 
     .confidence-highlight {
@@ -426,6 +508,11 @@
       font-weight: 800;
     }
 
+    .shared-value {
+      color: #0b3d91;
+      font-weight: 900 !important;
+    }
+
     .footer {
       color: var(--muted);
       font-size: 12px;
@@ -449,6 +536,14 @@
 
       .flow {
         grid-template-columns: 1fr;
+      }
+
+      .sigmoid-box {
+        min-width: 0;
+      }
+
+      .fixed-question-calc {
+        white-space: normal;
       }
 
       .arrow {
@@ -484,12 +579,16 @@
           <div id="stepValue" class="value">0 / 6</div>
         </div>
         <div class="stat">
-          <div class="label">Prediction</div>
+          <div class="label">Fixed Question Prediction</div>
           <div id="predictionValue" class="value">—</div>
         </div>
         <div class="stat">
-          <div class="label">Target</div>
-          <div id="targetValue" class="value">—</div>
+          <div class="label">Fixed Question Loss</div>
+          <div id="lossValue" class="value">—</div>
+        </div>
+        <div class="stat">
+          <div class="label">Training Example Prediction</div>
+          <div id="trainingPredictionValue" class="value">—</div>
         </div>
         <div class="stat">
           <div class="label">Error</div>
@@ -498,6 +597,10 @@
         <div class="stat">
           <div class="label">Learning Rate</div>
           <div id="lrValue" class="value">0.35</div>
+        </div>
+        <div class="stat">
+          <div class="label">Target</div>
+          <div id="targetValue" class="value">—</div>
         </div>
       </div>
     </section>
@@ -509,6 +612,10 @@
         Each row is a token. Each column is an embedding dimension. The ANN does not see words;
         it sees this numeric tensor.
       </p>
+      <div class="embedding-evolution">
+        <h3>Simulated Embedding Update for Token Sales</h3>
+        <div id="salesEmbeddingTable" class="embedding-table"></div>
+      </div>
     </section>
 
     <section class="panel">
@@ -542,6 +649,9 @@
           <div id="sigmoidOutput" class="formula">ŷ = σ(z)</div>
           <div id="sigmoidCalculation" class="vector-calc">
             Press Enter to convert z into prediction confidence.
+          </div>
+          <div id="fixedQuestionCalculation" class="vector-calc fixed-question-calc">
+            Press Enter to re-answer the fixed question after the weight update.
           </div>
         </div>
       </div>
@@ -610,6 +720,11 @@
       bias: 0,
       index: 0,
       weightCalculations: [],
+      fixedQuestionTarget: 1,
+      embeddingLearningRate: 0.35,
+      initialSalesEmbedding: [0.95, 0.20, 0.80, 0.10, 0.10, 0.20],
+      salesEmbedding: [0.95, 0.20, 0.80, 0.10, 0.10, 0.20],
+      salesEmbeddingHistory: [],
       examples: [
         {
           text: "Are MAG sales up in Chicago?",
@@ -645,13 +760,13 @@
           ]
         },
         {
-          text: "MAG volume is flat in Chicago.",
-          target: 0,
-          tokens: ["mag", "volume", "flat", "chicago"],
+          text: "MAG volume is rising in Chicago.",
+          target: 1,
+          tokens: ["mag", "volume", "rising", "chicago"],
           tensor: [
             [0.20, 0.10, 0.20, 0.10, 0.10, 0.10],
             [0.75, 0.20, 0.60, 0.10, 0.10, 0.15],
-            [0.35, 0.20, 0.20, 0.10, 0.45, 0.10],
+            [0.82, 0.20, 0.85, 0.10, 0.05, 0.15],
             [0.30, 0.95, 0.40, 0.90, 0.20, 0.30]
           ]
         },
@@ -668,13 +783,13 @@
           ]
         },
         {
-          text: "MAG sales declined in Chicago.",
-          target: 0,
-          tokens: ["mag", "sales", "declined", "chicago"],
+          text: "MAG sales increased in Chicago.",
+          target: 1,
+          tokens: ["mag", "sales", "increased", "chicago"],
           tensor: [
             [0.20, 0.10, 0.20, 0.10, 0.10, 0.10],
             [0.95, 0.20, 0.80, 0.10, 0.10, 0.20],
-            [0.12, 0.20, 0.10, 0.10, 0.95, 0.20],
+            [0.88, 0.20, 0.85, 0.10, 0.10, 0.15],
             [0.30, 0.95, 0.40, 0.90, 0.20, 0.30]
           ]
         }
@@ -713,26 +828,61 @@
         "(" + fmt(sentenceVector[i]) + " × " + fmt(weight) + ")"
       ).join(" + ");
       document.getElementById("linearCalculation").innerHTML =
-        terms + " + " + fmt(bias) + " = <strong>" + fmt(z) + "</strong>";
+        terms + " + " + fmt(bias) + " = <span class='shared-value'>" + fmt(z) + "</span>";
     }
 
     function renderSigmoidCalculation(z, prediction) {
       document.getElementById("sigmoidCalculation").innerHTML =
+        "<div class='sigmoid-formulas'>" +
         "<div class='math-fraction'>" +
         "<span>σ(z) =</span>" +
         "<span class='fraction'><span class='top'>1</span>" +
         "<span class='bottom'>1 + e<sup>−z</sup></span></span>" +
         "</div>" +
-        "<div class='e-note'>e≈2.718 (Euler's constant)</div>" +
         "<div class='math-fraction'>" +
-        "<span>σ(" + fmt(z) + ") =</span>" +
+        "<span>σ(<span class='shared-value'>" + fmt(z) + "</span>) =</span>" +
         "<span class='fraction'><span class='top'>1</span>" +
-        "<span class='bottom'>1 + e<sup>−" + fmt(z) + "</sup></span></span>" +
+        "<span class='bottom'>1 + e<sup>−<span class='shared-value'>" + fmt(z) + "</span></sup></span></span>" +
         "<span>= <span class='confidence-highlight'>" + fmt(prediction) + "</span></span>" +
+        "</div>" +
+        "<div class='e-note'>e≈2.718 (Euler's constant)</div>" +
         "</div>";
     }
 
+    function renderFixedQuestionCalculation(fixedQuestionVector, fixedZ, fixedPrediction, fixedLoss) {
+      const terms = fixedQuestionVector.map((value, i) => ({
+        text:
+          "(" + fmt(value) + "×" + fmt(demo.weights[i]) + ")",
+        value: value * demo.weights[i]
+      }));
+      const firstHalf = terms.slice(0, 3);
+      const secondHalf = terms.slice(3);
+      const firstHalfSum = firstHalf.reduce((sum, term) => sum + term.value, 0);
+      const secondHalfSum = secondHalf.reduce((sum, term) => sum + term.value, 0);
+
+      const renderTerms = termsToRender =>
+        termsToRender.map(term => term.text).join(" + ");
+
+      document.getElementById("fixedQuestionCalculation").innerHTML =
+        "<strong>Fixed question after update</strong><br>" +
+        "x_fixed = [" + fixedQuestionVector.map(fmt).join(", ") + "]<br>" +
+        "sum A = " + renderTerms(firstHalf) +
+        " = <strong>" + fmt(firstHalfSum) + "</strong><br>" +
+        "sum B = " + renderTerms(secondHalf) +
+        " = <strong>" + fmt(secondHalfSum) + "</strong><br>" +
+        "z_fixed = " + fmt(firstHalfSum) + "+" + fmt(secondHalfSum) +
+        "+bias " + fmt(demo.bias) + " = <span class='shared-value'>" + fmt(fixedZ) + "</span><br>" +
+        "fixed prediction = σ(<span class='shared-value'>" + fmt(fixedZ) + "</span>) = <strong>" +
+        fmt(fixedPrediction) + "</strong><br>" +
+        "fixed loss = 0.5×(" + demo.fixedQuestionTarget + " - " +
+        fmt(fixedPrediction) + ")² = <strong>" + fmt(fixedLoss) + "</strong>";
+    }
+
     function fmt(n) {
+      return Number(n).toFixed(2);
+    }
+
+    function fmtEmbedding(n) {
       return Number(n).toFixed(2);
     }
 
@@ -793,6 +943,63 @@
       div.className = "dim-cell";
       div.textContent = text;
       return div;
+    }
+
+    function resetSalesEmbedding() {
+      demo.salesEmbedding = [...demo.initialSalesEmbedding];
+      demo.salesEmbeddingHistory = [
+        {
+          step: "start",
+          source: "Random Seed",
+          vector: [...demo.salesEmbedding]
+        }
+      ];
+    }
+
+    function renderSalesEmbeddingHistory() {
+      const table = document.getElementById("salesEmbeddingTable");
+      table.innerHTML = "";
+
+      ["step", "source", ...demo.dims].forEach(label => {
+        const cell = document.createElement("div");
+        cell.className = "embedding-cell embedding-head";
+        cell.textContent = label;
+        table.appendChild(cell);
+      });
+
+      demo.salesEmbeddingHistory.forEach((entry, rowIndex) => {
+        const rowClass = rowIndex === demo.salesEmbeddingHistory.length - 1
+          ? " embedding-current"
+          : "";
+        const step = document.createElement("div");
+        step.className = "embedding-cell embedding-step" + rowClass;
+        step.textContent = entry.step;
+        table.appendChild(step);
+
+        const source = document.createElement("div");
+        source.className = "embedding-cell" + rowClass;
+        source.textContent = entry.source;
+        table.appendChild(source);
+
+        entry.vector.forEach(value => {
+          const cell = document.createElement("div");
+          cell.className = "embedding-cell" + rowClass;
+          cell.textContent = fmtEmbedding(value);
+          table.appendChild(cell);
+        });
+      });
+    }
+
+    function updateSalesEmbedding(error, source) {
+      const updated = demo.salesEmbedding.map((value, i) =>
+        Math.max(0, Math.min(1, value + demo.embeddingLearningRate * error * demo.weights[i]))
+      );
+      demo.salesEmbedding = updated;
+      demo.salesEmbeddingHistory.push({
+        step: String(demo.index + 1),
+        source,
+        vector: [...demo.salesEmbedding]
+      });
     }
 
     function renderWeights() {
@@ -911,11 +1118,14 @@
     }
 
     function renderInitial() {
+      resetSalesEmbedding();
       document.getElementById("question").textContent = "Press Enter to begin training.";
       document.getElementById("targetText").textContent = "Goal: visually show tensor → vector → weight/bias → prediction → training update.";
       document.getElementById("stepValue").textContent = "0 / 6";
       document.getElementById("predictionValue").textContent = "—";
+      document.getElementById("trainingPredictionValue").textContent = "—";
       document.getElementById("targetValue").textContent = "—";
+      document.getElementById("lossValue").textContent = "—";
       document.getElementById("errorValue").textContent = "—";
       document.getElementById("sentenceVector").textContent = "—";
       document.getElementById("sentenceVectorCalculation").textContent =
@@ -927,6 +1137,8 @@
       document.getElementById("sigmoidOutput").textContent = "";
       document.getElementById("sigmoidCalculation").textContent =
         "Press Enter to convert z into prediction confidence.";
+      document.getElementById("fixedQuestionCalculation").textContent =
+        "Press Enter to re-answer the fixed question after the weight update.";
       document.getElementById("errorFormula").textContent =
         "error = target - prediction confidence";
       document.getElementById("errorCalculation").textContent =
@@ -934,6 +1146,7 @@
       document.getElementById("narration").textContent = "Press Enter. MAGPAI will process one example, make a prediction, compare it to the target, then slightly change the weights and bias.";
       document.getElementById("updateExplanation").innerHTML = "";
       renderWeights();
+      renderSalesEmbeddingHistory();
 
       renderZeroTensor();
       renderVectorCanvas([0, 0, 0, 0, 0, 0]);
@@ -944,6 +1157,7 @@
       const stepIndex = demo.index;
       const example = demo.examples[stepIndex];
       const sentenceVector = meanVector(example.tensor);
+      const fixedQuestionVector = meanVector(demo.examples[0].tensor);
       const zBefore = dot(demo.weights, sentenceVector) + demo.bias;
       const pred = sigmoid(zBefore);
       const error = example.target - pred;
@@ -955,6 +1169,13 @@
         demo.weights[i] = demo.weights[i] + demo.learningRate * error * sentenceVector[i];
       }
       demo.bias = demo.bias + demo.learningRate * error;
+      const fixedQuestionZ = dot(demo.weights, fixedQuestionVector) + demo.bias;
+      const fixedQuestionPrediction = sigmoid(fixedQuestionZ);
+      const fixedQuestionLoss =
+        0.5 * Math.pow(demo.fixedQuestionTarget - fixedQuestionPrediction, 2);
+      if (example.tokens.includes("sales")) {
+        updateSalesEmbedding(error, "sales token");
+      }
       demo.weightCalculations = oldWeights.map((oldWeight, i) =>
         "w" + (i + 1) + " = " + fmt(oldWeight) + " + " + fmt(demo.learningRate) +
         " × <span class='error-highlight'>" + fmt(error) + "</span> × " +
@@ -968,8 +1189,10 @@
         (example.target === 1 ? "(YES, sales up)" : "(NO, not sales up)");
 
       document.getElementById("stepValue").textContent = (stepIndex + 1) + " / " + demo.examples.length;
-      document.getElementById("predictionValue").textContent = fmt(pred);
+      document.getElementById("predictionValue").textContent = fmt(fixedQuestionPrediction);
+      document.getElementById("trainingPredictionValue").textContent = fmt(pred);
       document.getElementById("targetValue").textContent = example.target;
+      document.getElementById("lossValue").textContent = fmt(fixedQuestionLoss);
       document.getElementById("errorValue").innerHTML =
         "<span class='error-highlight'>" + fmt(error) + "</span>";
 
@@ -977,10 +1200,16 @@
         "[" + sentenceVector.map(fmt).join(", ") + "]";
       renderSentenceVectorCalculation(example.tensor, sentenceVector);
       document.getElementById("linearFormula").innerHTML =
-        "z = Σ(dimension × weight) + bias = <strong>" + fmt(zBefore) + "</strong>";
+        "z = Σ(dimension × weight) + bias = <span class='shared-value'>" + fmt(zBefore) + "</span>";
       renderLinearCalculation(oldWeights, sentenceVector, oldBias, zBefore);
       document.getElementById("sigmoidOutput").textContent = "";
       renderSigmoidCalculation(zBefore, pred);
+      renderFixedQuestionCalculation(
+        fixedQuestionVector,
+        fixedQuestionZ,
+        fixedQuestionPrediction,
+        fixedQuestionLoss
+      );
       document.getElementById("errorFormula").innerHTML =
         "error = target - prediction confidence = " +
         "<span class='error-highlight'>" + fmt(error) + "</span>";
@@ -996,20 +1225,24 @@
         "MAGPAI processed the tensor, averaged it into a sentence vector, calculated " +
         "<strong>z = Σ(dimension × weight) + bias</strong>, then converted it to " +
         "a prediction confidence with sigmoid. " +
-        "The prediction was <span class='confidence-highlight'>" + fmt(pred) +
+        "The training example prediction was <span class='confidence-highlight'>" + fmt(pred) +
         "</span>, but the target was <strong>" +
         example.target + "</strong>. The prediction was <span class='amber'>" + direction +
         "</span>, so training nudged the weights and bias to <strong>" + movement +
-        "</strong> the future score for similar inputs.";
+        "</strong> the future score for similar inputs. After that update, MAGPAI re-answered " +
+        "the fixed question with confidence <strong>" +
+        fmt(fixedQuestionPrediction) + "</strong> and fixed-question loss <strong>" +
+        fmt(fixedQuestionLoss) + "</strong>.";
 
       document.getElementById("updateExplanation").innerHTML =
         "<strong>Bias update:</strong> new bias = old bias + learning rate × error" +
         "<br>" + fmt(demo.bias) + " = " + fmt(oldBias) + " + " +
         fmt(demo.learningRate) + " × <span class='error-highlight'>" + fmt(error) + "</span>" +
-        "<br><strong>Weight example:</strong> sales weight " + fmt(oldWeights[0]) +
-        " → " + fmt(demo.weights[0]);
+        "<div class='weight-calc'><strong>Weight example:</strong> sales weight " + fmt(oldWeights[0]) +
+        " → " + fmt(demo.weights[0]) + "</div>";
 
       renderTensor(example);
+      renderSalesEmbeddingHistory();
       renderVectorCanvas(sentenceVector);
       renderWeights();
 
