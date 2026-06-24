@@ -11,7 +11,7 @@ Engineering/MAGPAI
 ## Page Title
 
 ```text
-MAGPAI – Mark Anthony Group Prototype AI – v1.0
+MAGPAI – MAG Prototype AI – v1.0
 ```
 
 ## Purpose

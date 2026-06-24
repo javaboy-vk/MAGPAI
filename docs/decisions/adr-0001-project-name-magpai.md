@@ -10,7 +10,7 @@ The tiny educational AI model and lab project will be named MAGPAI.
 
 ## Meaning
 
-MAGPAI means Mark Anthony Group Prototype AI.
+MAGPAI means MAG Prototype AI. MAG is a fictitious company that sells products in Chicago.
 
 It is pronounced magpie.
 

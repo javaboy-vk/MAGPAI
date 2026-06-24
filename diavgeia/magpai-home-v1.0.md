@@ -1,4 +1,4 @@
-# MAGPAI - Mark Anthony Group AI Learning Demo - v1.0
+# MAGPAI - MAG AI Learning Demo - v1.0
 
 ![[magpie.avif]]
 

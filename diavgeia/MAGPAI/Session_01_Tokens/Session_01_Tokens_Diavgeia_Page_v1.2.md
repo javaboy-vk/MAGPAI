@@ -26,7 +26,7 @@ Are MAG sales up in Chicago?
 Where:
 
 ```text
-MAG = Mark Anthony Group
+MAG = fictitious company that sells products in Chicago
 sales = business metric
 up = trend question
 Chicago = market/location

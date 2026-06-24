@@ -1,7 +1,7 @@
 [project]
 name = "magpai"
 version = "1.0.0"
-description = "MAGPAI – Mark Anthony Group Prototype AI educational demo lab"
+description = "MAGPAI – MAG Prototype AI educational demo lab"
 authors = [
     { name = "Vasilis Katsoulis" }
 ]

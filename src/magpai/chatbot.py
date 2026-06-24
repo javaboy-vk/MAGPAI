@@ -84,7 +84,7 @@ def process_question(
 def print_banner() -> None:
     print("=" * 50)
     print("MAGPAI – Tiny AI Business Assistant – v0.1")
-    print("Mark Anthony Group AI Learning Demo")
+    print("Fictitious MAG Company AI Learning Demo")
     print("=" * 50)
 
 

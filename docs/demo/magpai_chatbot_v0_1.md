@@ -5,7 +5,7 @@
     <div class="console-header">
       <div>
         <div class="console-title">MAGPAI - Tiny AI Business Assistant - v0.1</div>
-        <div class="console-subtitle">Mark Anthony Group AI Learning Demo</div>
+        <div class="console-subtitle">Fictitious MAG Company AI Learning Demo</div>
       </div>
       <label class="trace-toggle">
         <input id="chatbot-trace-toggle" type="checkbox" />

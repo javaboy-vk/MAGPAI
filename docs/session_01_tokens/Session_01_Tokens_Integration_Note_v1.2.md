@@ -52,7 +52,7 @@ streamlit run src\magpai\tokenization\token_streamlit_app.py
 
 For internal learning, Academy, Diavgeia, and MAGPAI engineering demos, use Diavgeia presenter notes.
 
-For formal delivery to Mark Anthony leadership or broad corporate audiences, use PowerPoint.
+For formal delivery to leadership or broad corporate audiences, use PowerPoint.
 
 The standardized model is:
 

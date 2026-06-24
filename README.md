@@ -1,10 +1,12 @@
-# MAGPAI – Mark Anthony Group Prototype AI – v1.0
+# MAGPAI – MAG Prototype AI – v1.0
 
 **Pronounced:** magpie  
 **Lifecycle:** Training / internal demo / educational prototype  
 **Created:** 2026-05-22
 
 MAGPAI is a tiny, transparent educational AI model and demo lab designed to explain how modern AI systems work under the covers.
+
+MAG is a fictitious company that sells products in Chicago. This fictional business context makes “Are MAG sales up in Chicago?” a meaningful example question throughout the demos.
 
 MAGPAI is not intended to be a production model. It is a teaching platform for understanding, inspecting, running, visualizing, and explaining AI concepts through documentation, diagrams, Python code, notebooks, and local runtime demos.
 
